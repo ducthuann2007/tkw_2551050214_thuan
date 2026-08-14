@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider-Toys - Thế Giới Đồ Chơi Người Nhện Chính Hãng</title>
+  
+  <!-- Google Fonts: Bebas Neue & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#ce181e',       /* Red #ce181e */
+            accent: '#0476d0',      /* Blue #0476d0 */
+            ink: '#0f172a',         /* Ink #0f172a */
+            muted: '#64748b',       /* Muted #64748b */
+            line: '#e2e8f0',        /* Line #e2e8f0 */
+            surface: '#ffffff',     /* Surface #ffffff */
+          },
+          fontFamily: {
+            display: ['"Bebas Neue"', '"Oswald"', 'system-ui', 'sans-serif'],
+            sans: ['"Inter"', 'system-ui', 'sans-serif'],
+          },
+          borderRadius: {
+            'card': '0.875rem',    /* 0.875rem = 14px */
+            'pill': '999px',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      color: #0f172a;
+      background-color: #ffffff;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Bebas Neue', 'Oswald', system-ui, sans-serif;
+      letter-spacing: 0.03em;
+    }
+    h1 { font-size: 56px; leading-height: 1.1; }
+    h2 { font-size: 36px; leading-height: 1.2; }
+    h3 { font-size: 24px; leading-height: 1.3; }
+  </style>
+</head>
+<body class="bg-surface text-ink font-sans antialiased selection:bg-brand/10 selection:text-brand">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:p-3 focus:bg-surface focus:text-brand focus:z-50">
+    Bỏ qua đến nội dung chính
+  </a>
+
+  <!-- HEADER -->
+  <header class="bg-surface border-b border-line sticky top-0 z-40 backdrop-blur-md bg-surface/90">
+    <div class="mx-auto w-full max-w-6xl px-5 py-4 flex items-center justify-between">
+      <a href="#" class="inline-flex items-center gap-2 text-2xl font-bold text-ink">
+        <svg class="w-8 h-8 shrink-0 text-brand" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 12v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+        </svg>
+        <span class="tracking-wider text-brand font-display text-3xl">SPIDER-TOYS</span>
+      </a>
+      <nav aria-label="Điều hướng chính" class="hidden md:flex items-center gap-6 text-sm font-semibold text-ink">
+        <a href="#hero" class="text-brand font-bold">Trang chủ</a>
+        <a href="#features" class="hover:text-accent transition">Tính năng</a>
+        <a href="#solutions" class="hover:text-accent transition">Bộ sưu tập</a>
+        <a href="#pricing" class="hover:text-accent transition">Bảng giá</a>
+        <a href="#faq" class="hover:text-accent transition">FAQ</a>
+      </nav>
+      <div class="flex items-center gap-3 text-sm">
+        <a href="#" class="font-semibold text-ink hover:text-accent transition px-3 py-2">Đăng nhập</a>
+        <a href="#cta" class="bg-brand text-surface px-5 py-2.5 rounded-pill hover:bg-brand/90 font-bold transition shadow-md uppercase tracking-wider text-xs">Săn đồ chơi ngay</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO SECTION -->
+    <section aria-labelledby="hero-title" id="hero" class="mx-auto w-full max-w-6xl px-5 py-[80px] grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="inline-block bg-brand/10 text-brand text-xs font-bold px-3 py-1 rounded-pill mb-4 border border-brand/20 uppercase tracking-wider">
+          🕷️ SIÊU ANH HÙNG MARVEL 2026
+        </span>
+        <h1 id="hero-title" class="font-display text-[56px] text-ink mb-4 uppercase leading-none">
+          BƯỚC VÀO THẾ GIỚI <span class="text-brand">NGƯỜI NHỆN</span> SIÊU ĐẲNG!
+        </h1>
+        <p class="text-muted mb-8 leading-relaxed text-base">
+          Sở hữu ngay các bộ mô hình Spider-Man chính hãng Marvel, thiết kế khớp cử động linh hoạt, chất liệu nhựa cao cấp an toàn tuyệt đối cho bé và collector.
+        </p>
+        <div class="flex flex-wrap gap-4 mb-8 items-center">
+          <a href="#solutions" class="bg-brand text-surface px-8 py-3.5 rounded-pill font-bold hover:bg-brand/90 transition shadow-lg text-sm uppercase tracking-wider">
+            Khám phá mô hình
+          </a>
+          <button 
+            type="button" 
+            onclick="document.getElementById('videoModal').showModal()" 
+            class="border-2 border-accent text-accent px-8 py-3 rounded-pill font-bold hover:bg-accent/5 active:scale-95 transition cursor-pointer text-sm uppercase tracking-wider">
+            Xem Video Mở Hộp
+          </button>
+        </div>
+      </div>
+      <div class="flex justify-center items-center">
+        <div class="relative w-full max-w-[420px] aspect-square bg-gradient-to-tr from-brand/10 via-accent/10 to-transparent rounded-card p-6 flex items-center justify-center border border-line shadow-xl">
+          <img 
+            src="https://images.unsplash.com/photo-1604200213928-ba3cf4fc8436?auto=format&fit=crop&w=800&q=80" 
+            alt="Mô hình Đồ chơi Người Nhện Spider-Man" 
+            class="w-full h-full object-contain drop-shadow-2xl hover:scale-105 transition duration-300"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGOS PARTNERS -->
+    <section aria-label="Đối tác uy tín" id="logos" class="border-y border-line bg-surface py-[80px]">
+      <div class="mx-auto w-full max-w-6xl px-5">
+        <p class="text-center text-xs font-bold text-muted uppercase tracking-widest mb-8">Thương hiệu ủy quyền & Đối tác chính thức</p>
+        <ul class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 text-muted font-display text-2xl select-none">
+          <li class="hover:text-brand transition cursor-pointer">MARVEL</li>
+          <li class="hover:text-accent transition cursor-pointer">HASBRO</li>
+          <li class="hover:text-brand transition cursor-pointer">LEGO</li>
+          <li class="hover:text-accent transition cursor-pointer">BANDAI</li>
+          <li class="hover:text-brand transition cursor-pointer">HOT TOYS</li>
+          <li class="hover:text-accent transition cursor-pointer">DISNEY</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section aria-labelledby="features-title" id="features" class="mx-auto w-full max-w-6xl px-5 py-[80px]">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 id="features-title" class="font-display text-[36px] text-ink uppercase">Tính Năng & Chất Lượng Đỉnh Cao</h2>
+        <p class="text-muted mt-2">Dòng sản phẩm đồ chơi Người Nhện được thiết kế tỉ mỉ từng chi tiết cho trải nghiệm chân thực nhất.</p>
+      </div>
+      <ul class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <li class="p-6 bg-surface rounded-card border border-line shadow-sm hover:border-brand/50 hover:shadow-md transition">
+          <span class="grid h-12 w-12 place-items-center rounded-card bg-brand/10 text-brand mb-4 font-bold text-xl">
+            🕷️
+          </span>
+          <h3 class="font-display text-[24px] text-ink mb-2 uppercase">Khớp Cử Động 30+ Điểm</h3>
+          <p class="text-sm text-muted leading-relaxed">Tạo mọi tư thế chiến đấu kinh điển như bắn tơ, nhào lộn, bám tường đỉnh cao như trong phim.</p>
+        </li>
+        <li class="p-6 bg-surface rounded-card border border-line shadow-sm hover:border-accent/50 hover:shadow-md transition">
+          <span class="grid h-12 w-12 place-items-center rounded-card bg-accent/10 text-accent mb-4 font-bold text-xl">
+            🛡️
+          </span>
+          <h3 class="font-display text-[24px] text-ink mb-2 uppercase">Nhựa ABS An Toàn 100%</h3>
+          <p class="text-sm text-muted leading-relaxed">Đạt chuẩn kiểm định chất lượng quốc tế, không chứa BPA, đảm bảo an toàn tuyệt đối cho trẻ em.</p>
+        </li>
+        <li class="p-6 bg-surface rounded-card border border-line shadow-sm hover:border-brand/50 hover:shadow-md transition">
+          <span class="grid h-12 w-12 place-items-center rounded-card bg-brand/10 text-brand mb-4 font-bold text-xl">
+            ✨
+          </span>
+          <h3 class="font-display text-[24px] text-ink mb-2 uppercase">Phụ Kiện Đi Kèm Phong Phú</h3>
+          <p class="text-sm text-muted leading-relaxed">Bao gồm các bàn tay thay thế, tia tơ nhện dẻo cao cấp và đầu biểu cảm nhân vật Peter Parker.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section aria-labelledby="how-title" id="how-it-works" class="mx-auto w-full max-w-6xl px-5 py-[80px]">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 id="how-title" class="font-display text-[36px] text-ink uppercase">Hành Trình Săn Đồ Chơi Dễ Dàng</h2>
+        <p class="text-muted mt-2">Chỉ 3 bước đơn giản để mang Siêu Anh Hùng về bộ sưu tập của bạn.</p>
+      </div>
+
+      <ol class="mt-14 grid gap-6 md:grid-cols-3">
+        <li class="p-6 bg-surface rounded-card border border-line shadow-sm">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-card bg-brand text-surface font-display text-xl">01</span>
+            <h3 class="font-display text-[24px] text-ink uppercase">Chọn Mô Hình</h3>
+          </div>
+          <p class="text-sm text-muted leading-relaxed">
+            Duyệt qua bộ sưu tập phiên bản Spider-Man từ Classic, Iron Spider đến Miles Morales.
+          </p>
+        </li>
+
+        <li class="p-6 bg-surface rounded-card border border-line shadow-sm">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-card bg-accent text-surface font-display text-xl">02</span>
+            <h3 class="font-display text-[24px] text-ink uppercase">Đặt Hàng Siêu Tốc</h3>
+          </div>
+          <p class="text-sm text-muted leading-relaxed">
+            Thanh toán linh hoạt, đóng gói chống sốc 3 lớp cẩn thận cho mô hình nguyên vẹn.
+          </p>
+        </li>
+
+        <li class="p-6 bg-surface rounded-card border border-line shadow-sm">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-card bg-brand text-surface font-display text-xl">03</span>
+            <h3 class="font-display text-[24px] text-ink uppercase">Mở Hộp & Trải Nghiệm</h3>
+          </div>
+          <p class="text-sm text-muted leading-relaxed">
+            Nhận hàng tận tay, thỏa sức tạo dáng trưng bày hoặc làm quà tặng bất ngờ cho bé.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- SOLUTIONS / PRODUCTS -->
+    <section aria-labelledby="solutions-title" id="solutions" class="mx-auto w-full max-w-6xl px-5 py-[80px] bg-slate-50 rounded-card">
+      <div class="max-w-2xl mb-12">
+        <h2 id="solutions-title" class="font-display text-[36px] text-ink uppercase">Dòng Sản Phẩm Hot Nhất</h2>
+        <p class="text-muted mt-1">Đa dạng lựa chọn cho mọi độ tuổi từ bé mầm nông đến collector chuyên nghiệp.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-surface p-6 rounded-card border border-line shadow-sm hover:border-brand transition">
+          <h3 class="font-display text-[24px] text-ink mb-2 uppercase">Action Figure Khớp Động</h3>
+          <p class="text-sm text-muted mb-4">Mô hình tỷ lệ 1:12 cử động linh hoạt, màu sơn metallic sắc nét cực ngầu.</p>
+          <a href="#" class="text-brand font-bold text-sm hover:text-accent inline-flex items-center gap-1">Xem chi tiết →</a>
+        </div>
+        <div class="bg-surface p-6 rounded-card border border-line shadow-sm hover:border-brand transition">
+          <h3 class="font-display text-[24px] text-ink mb-2 uppercase">LEGO Marvel Spider-Man</h3>
+          <p class="text-sm text-muted mb-4">Bộ lắp ráp sáng tạo giúp bé phát triển tư duy logic và trí tưởng tượng phong phú.</p>
+          <a href="#" class="text-brand font-bold text-sm hover:text-accent inline-flex items-center gap-1">Xem chi tiết →</a>
+        </div>
+        <div class="bg-surface p-6 rounded-card border border-line shadow-sm hover:border-brand transition">
+          <h3 class="font-display text-[24px] text-ink mb-2 uppercase">Mặt Nạ & Băng Bắn Tơ</h3>
+          <p class="text-sm text-muted mb-4">Mặt nạ phát sáng cùng thiết bị bắn tơ hít hít cực vui cho bé nhập vai siêu anh hùng.</p>
+          <a href="#" class="text-brand font-bold text-sm hover:text-accent inline-flex items-center gap-1">Xem chi tiết →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section aria-labelledby="stats-title" id="stats" class="mx-auto w-full max-w-6xl px-5 py-[80px]">
+      <div class="bg-brand/5 rounded-card p-8 md:p-12 border border-brand/20">
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <h2 id="stats-title" class="font-display text-[36px] text-ink uppercase">Con Số Ấn Tượng</h2>
+          <p class="text-muted text-sm">Chất lượng được kiểm chứng bởi hàng ngàn khách hàng</p>
+        </div>
+        <dl class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-brand/20">
+          <div class="text-center p-6 flex flex-col items-center">
+            <dt class="order-2 mt-2 text-sm text-muted font-semibold uppercase">Mẫu Đồ Chơi Độc Quyền</dt>
+            <dd class="font-display text-5xl font-extrabold text-brand">500+</dd>
+          </div>
+          <div class="text-center p-6 flex flex-col items-center">
+            <dt class="order-2 mt-2 text-sm text-muted font-semibold uppercase">Fan Nhí & Collector Tin Dùng</dt>
+            <dd class="font-display text-5xl font-extrabold text-accent">25K+</dd>
+          </div>
+          <div class="text-center p-6 flex flex-col items-center">
+            <dt class="order-2 mt-2 text-sm text-muted font-semibold uppercase">Đánh Giá 5 Sao Chất Lượng</dt>
+            <dd class="font-display text-5xl font-extrabold text-brand">99%</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section aria-labelledby="testimonials-title" id="testimonials" class="mx-auto w-full max-w-6xl px-5 py-[80px]">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <h2 id="testimonials-title" class="font-display text-[36px] text-ink uppercase">Cảm Nhận Từ Fan Hâm Mộ</h2>
+        <p class="text-muted text-sm mt-1">Đánh giá thực tế từ các phụ huynh và dân sưu tầm mô hình</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <figure class="bg-surface p-8 rounded-card border border-line shadow-sm flex flex-col justify-between">
+          <blockquote class="text-ink italic leading-relaxed mb-6">
+            "Bé nhà mình thích mê bộ Spider-Man khớp cử động này! Nhựa cực kỳ dày dặn, không mùi nhựa hôi, khớp nối chắc chắn bé chơi hoài không chán."
+          </blockquote>
+          <figcaption class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-brand text-surface font-display text-xl font-bold rounded-pill grid place-items-center">
+              NV
+            </div>
+            <div>
+              <span class="block font-bold text-ink text-sm">Nguyễn Văn Tuấn</span>
+              <cite class="not-italic text-xs text-muted">Phụ huynh tại Hà Nội</cite>
+            </div>
+          </figcaption>
+        </figure>
+        <figure class="bg-surface p-8 rounded-card border border-line shadow-sm flex flex-col justify-between">
+          <blockquote class="text-ink italic leading-relaxed mb-6">
+            "Là một collector lâu năm, mình cực kỳ ấn tượng với độ chi tiết của dòng mô hình Iron Spider tại shop. Hàng chuẩn chính hãng Marvel, đóng gói siêu kỹ."
+          </blockquote>
+          <figcaption class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-accent text-surface font-display text-xl font-bold rounded-pill grid place-items-center">
+              TH
+            </div>
+            <div>
+              <span class="block font-bold text-ink text-sm">Trần Hoàng Minh</span>
+              <cite class="not-italic text-xs text-muted">Mô Hình Collector</cite>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section aria-labelledby="pricing-title" id="pricing" class="mx-auto w-full max-w-6xl px-5 py-[80px]">
+      <div class="text-center max-w-xl mx-auto mb-14">
+        <h2 id="pricing-title" class="font-display text-[36px] text-ink uppercase">Bảng Giá Combo Đồ Chơi</h2>
+        <p class="text-muted text-sm mt-1">Các gói sản phẩm tiết kiệm dành cho bé và người sưu tầm</p>
+      </div>
+      <ul class="grid items-stretch gap-6 lg:grid-cols-3">
+
+        <!-- THẺ 1 -->
+        <li class="flex h-full flex-col p-8 bg-surface border border-line rounded-card shadow-sm hover:shadow-md transition">
+          <h3 class="font-display text-[24px] text-ink uppercase">Combo Tập Chơi</h3>
+          <p class="text-xs text-muted mt-1">Dành cho các bé bắt đầu làm quen</p>
+          <div class="my-6">
+            <span class="text-4xl font-extrabold text-ink">199.000</span>
+            <span class="text-muted text-sm"> VNĐ</span>
+          </div>
+          <ul class="space-y-3 text-sm text-muted mb-8">
+            <li class="flex items-center gap-2">✓ 1 Mô hình Spider-Man Basic 15cm</li>
+            <li class="flex items-center gap-2">✓ Khớp vai & hông linh hoạt</li>
+            <li class="flex items-center gap-2">✓ Tặng kèm sticker nhện</li>
+          </ul>
+          <a href="#" class="mt-auto block text-center border-2 border-brand text-brand font-bold py-3 px-6 rounded-pill hover:bg-brand/10 transition uppercase tracking-wider text-xs">
+            Đặt Mua Gói Này
+          </a>
+        </li>
+
+        <!-- THẺ 2 (NỔI BẬT) -->
+        <li class="relative flex h-full flex-col p-8 bg-surface border-2 border-brand ring-2 ring-brand/20 rounded-card shadow-xl">
+          <span class="absolute -top-3.5 left-6 bg-brand text-surface text-xs px-3 py-1 rounded-pill font-bold tracking-wider uppercase">
+            Bán Chạy Nhất
+          </span>
+          <h3 class="font-display text-[24px] text-ink uppercase">Combo Chiến Đấu</h3>
+          <p class="text-xs text-muted mt-1">Trọn bộ phụ kiện và mô hình cử động cao cấp</p>
+          <div class="my-6">
+            <span class="text-4xl font-extrabold text-ink">499.000</span>
+            <span class="text-muted text-sm"> VNĐ</span>
+          </div>
+          <ul class="space-y-3 text-sm text-muted mb-8">
+            <li class="flex items-center gap-2">✓ 1 Mô hình Action Figure 30 khớp</li>
+            <li class="flex items-center gap-2">✓ 3 Bộ bàn tay thay thế & tơ nhện</li>
+            <li class="flex items-center gap-2">✓ Tặng 1 mặt nạ Người Nhện phát sáng</li>
+            <li class="flex items-center gap-2">✓ Miễn phí giao hàng toàn quốc</li>
+          </ul>
+          <a href="#" class="mt-auto block text-center bg-brand text-surface font-bold py-3 px-6 rounded-pill hover:bg-brand/90 transition shadow-md uppercase tracking-wider text-xs">
+            Mua Ngay Nhận Quà
+          </a>
+        </li>
+
+        <!-- THẺ 3 -->
+        <li class="flex h-full flex-col p-8 bg-surface border border-line rounded-card shadow-sm hover:shadow-md transition">
+          <h3 class="font-display text-[24px] text-ink uppercase">Combo Collector</h3>
+          <p class="text-xs text-muted mt-1">Phiên bản giới hạn kèm chân đế hiệu ứng</p>
+          <div class="my-6">
+            <span class="text-4xl font-extrabold text-ink">899.000</span>
+            <span class="text-muted text-sm"> VNĐ</span>
+          </div>
+          <ul class="space-y-3 text-sm text-muted mb-8">
+            <li class="flex items-center gap-2">✓ 1 Mô hình Iron Spider / Miles Morales</li>
+            <li class="flex items-center gap-2">✓ Chân đế Sa bàn hiệu ứng chiến đấu</li>
+            <li class="flex items-center gap-2">✓ Hộp Collector Box phiên bản đặc biệt</li>
+          </ul>
+          <a href="#" class="mt-auto block text-center border-2 border-accent text-accent font-bold py-3 px-6 rounded-pill hover:bg-accent/10 transition uppercase tracking-wider text-xs">
+            Sưu Tầm Ngay
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- BLOG -->
+    <section aria-labelledby="blog-title" id="blog" class="mx-auto w-full max-w-6xl px-5 py-[80px] border-t border-line">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <h2 id="blog-title" class="font-display text-[36px] text-ink uppercase">Tin Tức & Đánh Giá Đồ Chơi</h2>
+          <p class="text-muted text-sm mt-1">Cập nhật tin tức mô hình Marvel và mẹo bảo quản cho dân sưu tầm</p>
+        </div>
+        <a href="#" class="text-brand font-bold text-sm hover:text-accent uppercase tracking-wider">Xem Tất Cả Bài Viết →</a>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Bài 1 -->
+        <article class="group cursor-pointer">
+          <div class="h-48 rounded-card mb-4 overflow-hidden bg-slate-100">
+            <img 
+              src="https://images.unsplash.com/photo-1608889175123-8ee362201f81?auto=format&fit=crop&w=600&q=80" 
+              alt="Review mô hình Spider-Man 2026" 
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+            />
+          </div>
+          <span class="text-xs font-bold text-brand uppercase">Review Mô Hình</span>
+          <h3 class="font-display text-[24px] text-ink group-hover:text-brand transition mt-1 uppercase">Top 5 Bộ Đồ Chơi Spider-Man Được Yêu Thích Nhất 2026</h3>
+          <p class="text-xs text-muted mt-2">12 Tháng 8, 2026 • 4 phút đọc</p>
+        </article>
+
+        <!-- Bài 2 -->
+        <article class="group cursor-pointer">
+          <div class="h-48 rounded-card mb-4 overflow-hidden bg-slate-100">
+            <img 
+              src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=600&q=80" 
+              alt="Hướng dẫn tạo dáng Spider-Man" 
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+            />
+          </div>
+          <span class="text-xs font-bold text-accent uppercase">Mẹo Sưu Tầm</span>
+          <h3 class="font-display text-[24px] text-ink group-hover:text-accent transition mt-1 uppercase">Bí Quyết Tạo Dáng Bám Tường Đỉnh Cao Như Phim</h3>
+          <p class="text-xs text-muted mt-2">08 Tháng 8, 2026 • 6 phút đọc</p>
+        </article>
+
+        <!-- Bài 3 -->
+        <article class="group cursor-pointer">
+          <div class="h-48 rounded-card mb-4 overflow-hidden bg-slate-100">
+            <img 
+              src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80" 
+              alt="Phân biệt đồ chơi chính hãng" 
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+            />
+          </div>
+          <span class="text-xs font-bold text-brand uppercase">Kinh Nghiệm</span>
+          <h3 class="font-display text-[24px] text-ink group-hover:text-brand transition mt-1 uppercase">Cách Phân Biệt Đồ Chơi Marvel Chính Hãng & Hàng Nhái</h3>
+          <p class="text-xs text-muted mt-2">02 Tháng 8, 2026 • 5 phút đọc</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section aria-labelledby="faq-title" id="faq" class="mx-auto w-full max-w-6xl px-5 py-[80px] bg-slate-50 rounded-card">
+      <div class="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
+        <div>
+          <h2 id="faq-title" class="font-display text-[36px] text-ink uppercase">Câu Hỏi Thường Gặp</h2>
+          <p class="text-muted text-sm mt-3 leading-relaxed">
+            Bạn có thắc mắc về chất liệu, xuất xứ hay chính sách giao hàng đồ chơi? Dưới đây là câu trả lời nhanh cho bạn.
+          </p>
+        </div>
+        <div class="space-y-6">
+          <details class="bg-surface p-5 rounded-card shadow-sm border border-line group">
+            <summary class="font-bold text-ink cursor-pointer list-none flex justify-between items-center text-sm">
+              Đồ chơi Người Nhện tại shop có chính hãng không?
+              <span class="text-brand group-open:rotate-180 transition">▼</span>
+            </summary>
+            <p class="text-sm text-muted mt-3 leading-relaxed">
+              100% sản phẩm đồ chơi Spider-Toys bán ra đều là hàng có bản quyền Marvel từ các đối tác lớn như Hasbro, LEGO, Bandai, đầy đủ tem mác.
+            </p>
+          </details>
+          <details class="bg-surface p-5 rounded-card shadow-sm border border-line group">
+            <summary class="font-bold text-ink cursor-pointer list-none flex justify-between items-center text-sm">
+              Trẻ mấy tuổi thì chơi được mô hình này?
+              <span class="text-brand group-open:rotate-180 transition">▼</span>
+            </summary>
+            <p class="text-sm text-muted mt-3 leading-relaxed">
+              Các dòng sản phẩm có phân loại rõ ràng: Dòng nhựa nguyên khối cho bé từ 3+ tuổi, và dòng Action Figure khớp linh hoạt cho bé từ 6+ tuổi và collector.
+            </p>
+          </details>
+          <details class="bg-surface p-5 rounded-card shadow-sm border border-line group">
+            <summary class="font-bold text-ink cursor-pointer list-none flex justify-between items-center text-sm">
+              Chính sách đổi trả hàng nếu bị lỗi khớp như thế nào?
+              <span class="text-brand group-open:rotate-180 transition">▼</span>
+            </summary>
+            <p class="text-sm text-muted mt-3 leading-relaxed">
+              Shop hỗ trợ 1 đổi 1 miễn phí trong vòng 7 ngày nếu sản phẩm xuất hiện lỗi nhà sản xuất hoặc gãy vỡ trong quá trình vận chuyển.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section aria-labelledby="cta-title" id="cta" class="mx-auto w-full max-w-6xl px-5 py-[80px]">
+      <div class="bg-brand text-surface rounded-card p-10 md:p-16 text-center shadow-xl">
+        <h2 id="cta-title" class="font-display text-[56px] text-surface mb-4 uppercase leading-none">
+          SẴN SÀNG GIẢI CỨU THẾ GIỚI CÙNG SPIDER-MAN?
+        </h2>
+        <p class="text-surface/90 max-w-xl mx-auto text-sm md:text-base mb-8">
+          Tham gia cộng đồng hơn 25,000+ fan hâm mộ Siêu Anh Hùng và nhận ngay ưu đãi giảm 10% cho đơn hàng đầu tiên!
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#" class="bg-surface text-brand px-8 py-3.5 rounded-pill font-bold hover:bg-slate-100 transition shadow-md uppercase tracking-wider text-xs">
+            Đặt Mua Ngay Bây Giờ
+          </a>
+          <a href="#" class="border-2 border-surface text-surface px-8 py-3.5 rounded-pill font-bold hover:bg-surface/10 transition uppercase tracking-wider text-xs">
+            Nhận Tư Vấn Chọn Đồ Chơi
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line bg-surface py-[80px] text-sm text-muted">
+    <div class="mx-auto w-full max-w-6xl px-5 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div>
+        <a href="#" class="inline-flex items-center gap-2 text-2xl font-bold text-ink mb-4">
+          <span class="tracking-wider text-brand font-display text-3xl">SPIDER-TOYS</span>
+        </a>
+        <p class="text-xs text-muted leading-relaxed">
+          Hệ thống cửa hàng đồ chơi & mô hình Người Nhện chính hãng Marvel hàng đầu Việt Nam.
+        </p>
+      </div>
+      <nav aria-labelledby="footer-product-heading">
+        <h3 id="footer-product-heading" class="font-display text-[24px] text-ink mb-4 uppercase">Sản Phẩm</h3>
+        <ul class="space-y-2.5 text-xs">
+          <li><a href="#features" class="hover:text-brand transition">Action Figure 1:12</a></li>
+          <li><a href="#solutions" class="hover:text-brand transition">Bộ Lắp Ráp LEGO</a></li>
+          <li><a href="#pricing" class="hover:text-brand transition">Mặt Nạ & Phụ Kiện</a></li>
+          <li><a href="#" class="hover:text-brand transition">Hàng Mới Về</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="footer-support-heading">
+        <h3 id="footer-support-heading" class="font-display text-[24px] text-ink mb-4 uppercase">Hỗ Trợ Khách Hàng</h3>
+        <ul class="space-y-2.5 text-xs">
+          <li><a href="#faq" class="hover:text-brand transition">Trung Tâm Trợ Giúp</a></li>
+          <li><a href="#" class="hover:text-brand transition">Hướng Dẫn Đặt Hàng</a></li>
+          <li><a href="#" class="hover:text-brand transition">Chính Sách Đổi Trả</a></li>
+          <li><a href="#" class="hover:text-brand transition">Kiểm Tra Đơn Hàng</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="footer-contact-heading">
+        <h3 id="footer-contact-heading" class="font-display text-[24px] text-ink mb-4 uppercase">Trụ Sở Chính</h3>
+        <address class="not-italic text-xs text-muted space-y-2">
+          <p>Tầng 3, Spider Plaza</p>
+          <p>Đông Thạnh, Hóc Môn, TP. Hồ Chí Minh</p>
+          <p>Email: spiderman@spidertoys.vn</p>
+        </address>
+      </nav>
+    </div>
+    <div class="mx-auto w-full max-w-6xl px-5 mt-12 pt-6 border-t border-line text-center text-xs text-muted">
+      <p>© 2026 Spider-Toys Store. Tất cả quyền được bảo lưu.</p>
+    </div>
+  </footer>
+
+  <!-- VIDEO MODAL -->
+  <dialog id="videoModal" class="p-0 rounded-card backdrop:bg-black/60 backdrop:backdrop-blur-sm max-w-2xl w-11/12 border-0 shadow-2xl overflow-visible">
+    <div class="bg-surface p-3 md:p-4 rounded-card relative">
+      <button 
+        type="button"
+        onclick="document.getElementById('videoModal').close()" 
+        class="absolute -top-3 -right-3 bg-surface text-ink w-9 h-9 rounded-pill shadow-lg font-bold flex items-center justify-center hover:bg-slate-100 transition border border-line cursor-pointer z-20"
+        aria-label="Đóng video">
+        ✕
+      </button>
+      <div class="aspect-video w-full rounded-card overflow-hidden bg-black">
+        <iframe 
+          class="w-full h-full" 
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+          title="Spider-Man Toy Review Video" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </dialog>
+
+</body>
+</html>

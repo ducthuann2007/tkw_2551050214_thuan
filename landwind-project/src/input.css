@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Màu thương hiệu: Đỏ Người Nhện */
+  --color-brand-600: #ce181e;
+  --color-brand-700: #a81318; /* Màu đỏ đậm hơn dùng cho hiệu ứng hover nút */
+
+  /* Màu nhấn: Xanh nước biển */
+  --color-accent-500: #0476d0;
+
+  /* Bảng màu văn bản & nền */
+  --color-ink: #0f172a;
+  --color-muted: #64748b;
+  --color-line: #e2e8f0;
+  --color-surface: #ffffff;
+
+  /* Font chữ Comic/Đồ chơi */
+  --font-display: "Bebas Neue", "Oswald", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* Bo góc */
+  --radius-card: 0.875rem;
+  --radius-pill: 9999px;
+}
+
+/* Các lớp tái sử dụng */
+.section {
+  @apply mx-auto w-full max-w-6xl px-5 py-20 lg:py-28;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-pill px-5 py-2.5 text-sm font-semibold transition-colors cursor-pointer;
+}
+
+.btn-primary {
+  @apply bg-brand-600 text-white hover:bg-brand-700;
+}
+
+.btn-secondary {
+  @apply border-2 border-brand-600 text-brand-600 hover:bg-brand-600/5;
+}
