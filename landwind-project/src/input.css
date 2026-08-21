@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source "./";
+@source "../";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -40,4 +42,12 @@
 
 .btn-secondary {
   @apply border-2 border-brand-600 text-brand-600 hover:bg-brand-600/5;
+}
+
+.card {
+  @apply rounded-card border border-line bg-surface p-6 sm:p-8 shadow-sm;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-pill px-3 py-1 text-xs font-semibold uppercase tracking-wider;
 }
