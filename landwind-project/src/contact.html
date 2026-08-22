@@ -443,37 +443,8 @@
     </div>
   </footer>
 
-  <!-- Script xử lý chuyển đổi Dark / Light Mode -->
-  <script>
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const darkIcon = document.getElementById('theme-toggle-dark-icon');
-    const lightIcon = document.getElementById('theme-toggle-light-icon');
-
-    function syncThemeIcons() {
-      if (document.documentElement.classList.contains('dark')) {
-        lightIcon.classList.remove('hidden');
-        darkIcon.classList.add('hidden');
-      } else {
-        lightIcon.classList.add('hidden');
-        darkIcon.classList.remove('hidden');
-      }
-    }
-
-    syncThemeIcons();
-
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener('click', function () {
-        if (document.documentElement.classList.contains('dark')) {
-          document.documentElement.classList.remove('dark');
-          localStorage.setItem('theme', 'light');
-        } else {
-          document.documentElement.classList.add('dark');
-          localStorage.setItem('theme', 'dark');
-        }
-        syncThemeIcons();
-      });
-    }
-  </script>
+  <!-- Nạp file JavaScript chính dạng Module -->
+  <script type="module" src="../js/main.js"></script>
 </body>
 
 </html>
