@@ -7,11 +7,12 @@
   <title>Liên Hệ Hỗ Trợ - Spider-Store</title>
   <link rel="stylesheet" href="../dist/output.css">
   <script>
-    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    (function () {
+      const saved = localStorage.getItem("theme");
+      const dark = saved ? saved === "dark"
+        : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.classList.toggle("dark", dark);
+    })();
   </script>
 </head>
 
@@ -39,7 +40,7 @@
             fill="#ce181e" />
           <path d="M120 190c20 60 75 110 115 125-25-55-40-115-30-155-30 5-65 15-85 30z" fill="#ffffff" stroke="#0f172a"
             stroke-width="14" stroke-linejoin="round" />
-          <path d="M392 190c-20 60-75 110-115 125 25-55 40-115 30-155 30 5-65 15 85 30z" fill="#ffffff" stroke="#0f172a"
+          <path d="M392 190c-20 60-75 110-115 125 25-55 40-115 30-155 30 5 65 15 85 30z" fill="#ffffff" stroke="#0f172a"
             stroke-width="14" stroke-linejoin="round" />
           <path d="M256 32v432M64 240h384" stroke="#8b0e13" stroke-width="8" opacity="0.4" />
         </svg>
@@ -56,17 +57,23 @@
       </nav>
 
       <div class="flex items-center gap-3">
-        <!-- Nút bật/tắt Dark Mode -->
+        <!-- Nút bật/tắt Dark Mode: Đầu Venom (khi sáng -> bấm sang tối) / Đầu Spider-Man đỏ (khi tối -> bấm sang sáng) -->
         <button type="button" id="theme-toggle" aria-label="Chuyển đổi chế độ sáng/tối"
-          class="p-2 rounded-full text-ink dark:text-ink-invert bg-surface dark:bg-surface-dark-alt border border-line dark:border-line-invert hover:bg-brand-600/10 dark:hover:bg-brand-600/20 focus:outline-none cursor-pointer transition-colors shadow-sm">
-          <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          title="Bấm để chuyển đổi giao diện sáng/tối"
+          class="p-2 rounded-full text-ink dark:text-ink-invert bg-surface dark:bg-surface-dark-alt border border-line dark:border-line-invert hover:bg-brand-600/10 dark:hover:bg-brand-600/20 focus:outline-none cursor-pointer transition-all shadow-sm flex items-center justify-center">
+          <!-- Đầu Venom (hiển thị khi ở Light Mode để bấm bật Dark Mode) -->
+          <svg id="theme-toggle-venom-icon" class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 hidden" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M256 32C150 32 64 120 64 240c0 100 70 190 170 234 14 6 30 6 44 0 100-44 170-134 170-234 0-120-86-208-192-208z" fill="#0f172a" stroke="#334155" stroke-width="8" />
+            <path d="M110 170c30 70 90 130 130 145-30-65-45-135-30-180-35 5-75 15-100 35z" fill="#f8fafc" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
+            <path d="M402 170c-30 70-90 130-130 145 30-65 45-135 30-180 35 5 75 15 100 35z" fill="#f8fafc" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
+            <path d="M256 32v432M64 240h384" stroke="#1e293b" stroke-width="6" opacity="0.6" />
           </svg>
-          <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden text-amber-400" fill="currentColor"
-            viewBox="0 0 20 20">
-            <path fill-rule="evenodd"
-              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-              clip-rule="evenodd"></path>
+          <!-- Đầu Spider-Man Đỏ (hiển thị khi ở Dark Mode để bấm về Light Mode) -->
+          <svg id="theme-toggle-spider-icon" class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 hidden" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M256 32C150 32 64 120 64 240c0 100 70 190 170 234 14 6 30 6 44 0 100-44 170-134 170-234 0-120-86-208-192-208z" fill="#ce181e" stroke="#a81318" stroke-width="6" />
+            <path d="M120 190c20 60 75 110 115 125-25-55-40-115-30-155-30 5-65 15-85 30z" fill="#ffffff" stroke="#0f172a" stroke-width="14" stroke-linejoin="round" />
+            <path d="M392 190c-20 60-75 110-115 125 25-55 40-115 30-155 30 5 65 15 85 30z" fill="#ffffff" stroke="#0f172a" stroke-width="14" stroke-linejoin="round" />
+            <path d="M256 32v432M64 240h384" stroke="#8b0e13" stroke-width="8" opacity="0.4" />
           </svg>
         </button>
 

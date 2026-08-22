@@ -1,19 +1,24 @@
-// js/theme.js - Quản lý chế độ giao diện Dark / Light Mode
+// js/theme.js - Quản lý chế độ giao diện Dark / Light Mode với icon Venom / Spider-Man đỏ
 export function initTheme() {
   const themeToggleBtn = document.getElementById("theme-toggle");
-  const darkIcon = document.getElementById("theme-toggle-dark-icon");
-  const lightIcon = document.getElementById("theme-toggle-light-icon");
+  const venomIcon = document.getElementById("theme-toggle-venom-icon");
+  const spiderIcon = document.getElementById("theme-toggle-spider-icon");
 
   // Thoát êm nếu trang hiện tại không có nút chuyển đổi theme
   if (!themeToggleBtn) return;
 
   function syncThemeIcons() {
-    if (document.documentElement.classList.contains("dark")) {
-      if (lightIcon) lightIcon.classList.remove("hidden");
-      if (darkIcon) darkIcon.classList.add("hidden");
+    const isDark = document.documentElement.classList.contains("dark");
+    if (isDark) {
+      // Đang ở Dark Mode -> hiển thị đầu Người Nhện đỏ để bấm về giao diện Sáng
+      if (spiderIcon) spiderIcon.classList.remove("hidden");
+      if (venomIcon) venomIcon.classList.add("hidden");
+      themeToggleBtn.setAttribute("title", "Bấm đầu Người Nhện đỏ để chuyển sang giao diện Sáng");
     } else {
-      if (lightIcon) lightIcon.classList.add("hidden");
-      if (darkIcon) darkIcon.classList.remove("hidden");
+      // Đang ở Light Mode -> hiển thị đầu Venom đen để bấm sang giao diện Tối
+      if (spiderIcon) spiderIcon.classList.add("hidden");
+      if (venomIcon) venomIcon.classList.remove("hidden");
+      themeToggleBtn.setAttribute("title", "Bấm đầu Venom đen để chuyển sang giao diện Tối");
     }
   }
 
