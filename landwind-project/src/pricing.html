@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng Giá Hội Viên - Spider-Store</title>
+  <link rel="stylesheet" href="../dist/output.css">
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+</head>
+
+<body
+  class="bg-surface text-ink font-body antialiased dark:bg-surface-dark dark:text-ink-invert transition-colors duration-300">
+
+  <!-- Thẻ skip link -->
+  <a href="#main"
+    class="sr-only focus:not-sr-only focus:absolute focus:p-3 focus:bg-white focus:text-brand-600 focus:z-50">
+    Bỏ qua đến nội dung chính
+  </a>
+
+  <!-- Header & Nav -->
+  <header class="bg-surface border-b border-line dark:bg-surface-dark dark:border-line-invert transition-colors">
+    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+      <!-- Logo SPIDER-STORE: Biểu tượng Đầu Người Nhện -->
+      <a href="index.html"
+        class="inline-flex items-center gap-2.5 text-2xl sm:text-3xl font-display font-bold text-brand-600 tracking-wide uppercase">
+        <svg class="w-8 h-8 sm:w-9 sm:h-9 shrink-0 drop-shadow-md" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M256 32C150 32 64 120 64 240c0 100 70 190 170 234 14 6 30 6 44 0 100-44 170-134 170-234 0-120-86-208-192-208z"
+            fill="#ce181e" />
+          <path d="M120 190c20 60 75 110 115 125-25-55-40-115-30-155-30 5-65 15-85 30z" fill="#ffffff" stroke="#0f172a"
+            stroke-width="14" stroke-linejoin="round" />
+          <path d="M392 190c-20 60-75 110-115 125 25-55 40-115 30-155 30 5 65 15 85 30z" fill="#ffffff" stroke="#0f172a"
+            stroke-width="14" stroke-linejoin="round" />
+          <path d="M256 32v432M64 240h384" stroke="#8b0e13" stroke-width="8" opacity="0.4" />
+        </svg>
+        <span>SPIDER-STORE</span>
+      </a>
+
+      <nav aria-label="Điều hướng chính"
+        class="hidden lg:flex gap-6 text-sm font-medium text-muted dark:text-muted-invert">
+        <a href="index.html" class="hover:text-brand-600 transition-colors">Home</a>
+        <a href="index.html#features" class="hover:text-brand-600 transition-colors">Features</a>
+        <a href="pricing.html" class="text-brand-600 font-semibold">Pricing</a>
+        <a href="index.html#faq" class="hover:text-brand-600 transition-colors">FAQ</a>
+        <a href="contact.html" class="hover:text-brand-600 transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <!-- Nút bật/tắt Dark Mode -->
+        <button type="button" id="theme-toggle" aria-label="Chuyển đổi chế độ sáng/tối"
+          class="p-2 rounded-full text-ink dark:text-ink-invert bg-surface dark:bg-surface-dark-alt border border-line dark:border-line-invert hover:bg-brand-600/10 dark:hover:bg-brand-600/20 focus:outline-none cursor-pointer transition-colors shadow-sm">
+          <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden text-amber-400" fill="currentColor"
+            viewBox="0 0 20 20">
+            <path fill-rule="evenodd"
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+
+        <div class="hidden lg:flex gap-3 items-center text-sm">
+          <a href="#" class="font-medium text-ink dark:text-ink-invert hover:text-brand-600 transition-colors">Log in</a>
+          <a href="#" class="btn btn-primary">Get started</a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button type="button" aria-label="Mở menu điều hướng"
+          class="lg:hidden p-2 text-ink dark:text-ink-invert hover:text-brand-600 focus:outline-none cursor-pointer">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Header Banner Pricing -->
+    <section class="section pb-12 pt-16 text-center">
+      <span class="eyebrow">Bảng giá minh bạch</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-ink dark:text-ink-invert mb-4 uppercase tracking-wide">
+        Gói Hội Viên Spider-Store
+      </h1>
+      <p class="text-muted dark:text-muted-invert text-base max-w-2xl mx-auto leading-relaxed">
+        Lựa chọn gói hội viên tối ưu để mở khóa ưu đãi giảm giá độc quyền, quà tặng định kỳ và quyền mua trước các mẫu mô hình Spider-Man giới hạn.
+      </p>
+    </section>
+
+    <!-- Pricing Cards Section -->
+    <section aria-labelledby="pricing-cards-title" class="max-w-6xl mx-auto px-5 pb-20">
+      <h2 id="pricing-cards-title" class="sr-only">Danh sách gói hội viên</h2>
+      <ul class="grid items-stretch gap-6 lg:grid-cols-3">
+        <!-- Gói 1: Standard -->
+        <li class="card flex h-full flex-col">
+          <div>
+            <h3 class="text-xl font-display font-bold text-ink dark:text-ink-invert uppercase">Gói Khởi Đầu</h3>
+            <p class="mt-2 text-sm text-muted dark:text-muted-invert">Dành cho các fan mới bắt đầu khám phá thế giới Người Nhện.</p>
+            <div class="mt-6 mb-6 flex items-baseline gap-1">
+              <span class="text-4xl font-display font-extrabold text-ink dark:text-ink-invert">199.000đ</span>
+              <span class="text-sm text-muted dark:text-muted-invert font-medium">/tháng</span>
+            </div>
+          </div>
+
+          <ul class="space-y-3 text-sm text-muted dark:text-muted-invert border-t border-line dark:border-line-invert pt-6 mb-8">
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Giảm <strong>5%</strong> cho mọi đơn hàng phụ kiện</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Tặng móc khóa Spider-Man độc quyền</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Miễn phí giao hàng cho đơn từ 500K</span>
+            </li>
+          </ul>
+
+          <a href="contact.html" class="btn btn-secondary mt-auto w-full text-center">Đăng ký ngay</a>
+        </li>
+
+        <!-- Gói 2: Premium (Nổi bật) -->
+        <li class="card relative flex h-full flex-col ring-2 ring-brand-600 shadow-md">
+          <span class="badge absolute -top-3 left-6 bg-brand-600 text-white">Được chọn nhiều nhất</span>
+
+          <div>
+            <h3 class="text-xl font-display font-bold text-ink dark:text-ink-invert uppercase">Gói Spider-Hero</h3>
+            <p class="mt-2 text-sm text-muted dark:text-muted-invert">Lựa chọn lý tưởng cho các tín đồ sưu tầm mô hình chính hãng.</p>
+            <div class="mt-6 mb-6 flex items-baseline gap-1">
+              <span class="text-4xl font-display font-extrabold text-brand-600">499.000đ</span>
+              <span class="text-sm text-muted dark:text-muted-invert font-medium">/tháng</span>
+            </div>
+          </div>
+
+          <ul class="space-y-3 text-sm text-muted dark:text-muted-invert border-t border-line dark:border-line-invert pt-6 mb-8">
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Giảm <strong>15%</strong> cho tất cả sản phẩm & mô hình</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Ưu tiên đặt trước (Pre-order) bản giới hạn</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Tặng 01 áo thun Spider-Man độc quyền</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Miễn phí vận chuyển toàn quốc không giới hạn</span>
+            </li>
+          </ul>
+
+          <a href="contact.html" class="btn btn-primary mt-auto w-full text-center">Đăng ký ngay</a>
+        </li>
+
+        <!-- Gói 3: Ultimate -->
+        <li class="card flex h-full flex-col">
+          <div>
+            <h3 class="text-xl font-display font-bold text-ink dark:text-ink-invert uppercase">Gói Multiverse VIP</h3>
+            <p class="mt-2 text-sm text-muted dark:text-muted-invert">Đặc quyền cao cấp nhất dành cho nhà sưu tầm chuyên nghiệp.</p>
+            <div class="mt-6 mb-6 flex items-baseline gap-1">
+              <span class="text-4xl font-display font-extrabold text-ink dark:text-ink-invert">999.000đ</span>
+              <span class="text-sm text-muted dark:text-muted-invert font-medium">/tháng</span>
+            </div>
+          </div>
+
+          <ul class="space-y-3 text-sm text-muted dark:text-muted-invert border-t border-line dark:border-line-invert pt-6 mb-8">
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Giảm <strong>25%</strong> cho toàn bộ sản phẩm & Cosplay</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Hộp quà bí mật Marvel Mystery Box hàng tháng</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Thẻ thành viên kim loại đánh số độc bản</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Vé VIP tham gia Spider-Fest & sự kiện offline</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Hỗ trợ chuyên gia tư vấn bảo quản mô hình 24/7</span>
+            </li>
+          </ul>
+
+          <a href="contact.html" class="btn btn-secondary mt-auto w-full text-center">Đăng ký ngay</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section aria-labelledby="comparison-title" class="section border-t border-line dark:border-line-invert pt-16">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <span class="eyebrow">So sánh trực quan</span>
+        <h2 id="comparison-title" class="text-2xl sm:text-3xl font-display font-bold text-ink dark:text-ink-invert uppercase tracking-wide">
+          Bảng So Sánh Quyền Lợi Chi Tiết
+        </h2>
+        <p class="text-muted dark:text-muted-invert text-sm sm:text-base mt-2">
+          Theo dõi trực quan mọi đặc quyền đi kèm theo từng gói hội viên Spider-Store.
+        </p>
+        <!-- Hướng dẫn vuốt ngang trên mobile -->
+        <p class="mt-2 text-sm text-muted dark:text-muted-invert lg:hidden flex items-center justify-center gap-1.5">
+          <svg class="w-4 h-4 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+          </svg>
+          Vuốt ngang để xem hết bảng.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto rounded-card border border-line bg-surface dark:border-line-invert dark:bg-surface-dark-alt shadow-sm">
+        <table class="w-full min-w-[720px] text-left border-collapse">
+          <thead>
+            <tr class="border-b border-line bg-brand-600/5 dark:border-line-invert dark:bg-brand-600/10">
+              <th scope="col" class="p-4 sm:p-5 font-display font-bold text-base text-ink dark:text-ink-invert uppercase">Tính năng & Quyền lợi</th>
+              <th scope="col" class="p-4 sm:p-5 font-display font-bold text-base text-ink dark:text-ink-invert uppercase text-center">Gói Khởi Đầu</th>
+              <th scope="col" class="p-4 sm:p-5 font-display font-bold text-base text-brand-600 uppercase text-center bg-brand-600/10">Gói Spider-Hero</th>
+              <th scope="col" class="p-4 sm:p-5 font-display font-bold text-base text-ink dark:text-ink-invert uppercase text-center">Gói Multiverse VIP</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-line text-sm text-muted dark:divide-line-invert dark:text-muted-invert">
+            <tr>
+              <td class="p-4 sm:p-5 font-medium text-ink dark:text-ink-invert">Mức giảm giá trực tiếp</td>
+              <td class="p-4 sm:p-5 text-center">5%</td>
+              <td class="p-4 sm:p-5 text-center font-bold text-brand-600 bg-brand-600/5 dark:bg-brand-600/10">15%</td>
+              <td class="p-4 sm:p-5 text-center font-bold text-ink dark:text-ink-invert">25%</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-medium text-ink dark:text-ink-invert">Ưu tiên Pre-order bản giới hạn</td>
+              <td class="p-4 sm:p-5 text-center text-line dark:text-line-invert">—</td>
+              <td class="p-4 sm:p-5 text-center font-semibold text-brand-600 bg-brand-600/5 dark:bg-brand-600/10">✓ Cấp 1</td>
+              <td class="p-4 sm:p-5 text-center font-bold text-brand-600">✓ Cấp VIP Cao Nhất</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-medium text-ink dark:text-ink-invert">Quà tặng định kỳ hàng tháng</td>
+              <td class="p-4 sm:p-5 text-center">Móc khóa</td>
+              <td class="p-4 sm:p-5 text-center font-semibold text-brand-600 bg-brand-600/5 dark:bg-brand-600/10">Áo thun độc quyền</td>
+              <td class="p-4 sm:p-5 text-center font-semibold text-ink dark:text-ink-invert">Marvel Mystery Box</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-medium text-ink dark:text-ink-invert">Chính sách vận chuyển</td>
+              <td class="p-4 sm:p-5 text-center">Đơn từ 500K</td>
+              <td class="p-4 sm:p-5 text-center font-medium text-brand-600 bg-brand-600/5 dark:bg-brand-600/10">Miễn phí toàn quốc</td>
+              <td class="p-4 sm:p-5 text-center font-medium text-ink dark:text-ink-invert">Hỏa tốc 24/7</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-medium text-ink dark:text-ink-invert">Vé tham gia Spider-Fest offline</td>
+              <td class="p-4 sm:p-5 text-center text-line dark:text-line-invert">—</td>
+              <td class="p-4 sm:p-5 text-center text-line dark:text-line-invert bg-brand-600/5 dark:bg-brand-600/10">—</td>
+              <td class="p-4 sm:p-5 text-center font-semibold text-brand-600">Vé VIP miễn phí</td>
+            </tr>
+            <tr>
+              <td class="p-4 sm:p-5 font-medium text-ink dark:text-ink-invert">Tư vấn chuyên gia bảo quản</td>
+              <td class="p-4 sm:p-5 text-center">Giờ hành chính</td>
+              <td class="p-4 sm:p-5 text-center bg-brand-600/5 dark:bg-brand-600/10">Ưu tiên</td>
+              <td class="p-4 sm:p-5 text-center font-bold text-brand-600">24/7 Riêng biệt</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Payment FAQ Section -->
+    <section aria-labelledby="payment-faq-title" class="section border-t border-line dark:border-line-invert">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="eyebrow">Thắc mắc về gói</span>
+        <h2 id="payment-faq-title" class="text-3xl sm:text-4xl font-display font-bold text-ink dark:text-ink-invert mb-3 uppercase tracking-wide">
+          Câu Hỏi Về Thanh Toán & Hội Viên
+        </h2>
+        <p class="text-muted dark:text-muted-invert text-sm sm:text-base">
+          Giải đáp các vấn đề liên quan đến phương thức thanh toán, hoàn phí và gia hạn gói.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+        <div class="card">
+          <h3 class="font-display font-bold text-lg text-ink dark:text-ink-invert uppercase mb-2">
+            Spider-Store hỗ trợ những phương thức thanh toán nào?
+          </h3>
+          <p class="text-sm text-muted dark:text-muted-invert leading-relaxed">
+            Chúng tôi hỗ trợ chuyển khoản ngân hàng qua mã VietQR tự động, thanh toán thẻ ATM/Visa/Mastercard, ví điện tử MoMo, VNPay và thanh toán khi nhận hàng (COD).
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="font-display font-bold text-lg text-ink dark:text-ink-invert uppercase mb-2">
+            Tôi có thể hủy hoặc đổi gói bất kỳ lúc nào không?
+          </h3>
+          <p class="text-sm text-muted dark:text-muted-invert leading-relaxed">
+            Hoàn toàn được. Bạn có thể nâng cấp, hạ cấp hoặc hủy gia hạn gói bất cứ lúc nào trong tài khoản cá nhân mà không phải chịu bất kỳ khoản phí phạt nào.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="font-display font-bold text-lg text-ink dark:text-ink-invert uppercase mb-2">
+            Chính sách hoàn tiền diễn ra như thế nào?
+          </h3>
+          <p class="text-sm text-muted dark:text-muted-invert leading-relaxed">
+            Chúng tôi áp dụng chính sách hoàn tiền 100% trong vòng 7 ngày đầu tiên nếu bạn chưa sử dụng các ưu đãi mua sắm hoặc quà tặng độc quyền của gói.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="font-display font-bold text-lg text-ink dark:text-ink-invert uppercase mb-2">
+            Sau khi đăng ký thì quyền lợi được kích hoạt khi nào?
+          </h3>
+          <p class="text-sm text-muted dark:text-muted-invert leading-relaxed">
+            Mọi quyền lợi giảm giá và ưu tiên đặt hàng sẽ được kích hoạt tức thì ngay sau khi hệ thống xác nhận thanh toán thành công.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section pt-0">
+      <div class="rounded-card bg-brand-600 px-6 py-12 sm:px-12 sm:py-16 text-center text-white shadow-xl">
+        <h2 class="text-3xl sm:text-4xl font-display font-bold mb-4 uppercase tracking-wide">
+          Cần tư vấn chọn gói hội viên phù hợp?
+        </h2>
+        <p class="text-white/90 text-sm sm:text-base mb-8 max-w-xl mx-auto leading-relaxed">
+          Đội ngũ tư vấn viên của Spider-Store luôn sẵn sàng giải đáp và hướng dẫn bạn chọn gói tiết kiệm nhất.
+        </p>
+        <div class="flex justify-center gap-4">
+          <a href="contact.html" class="btn bg-surface text-brand-600 hover:bg-line px-8 py-3 text-base font-bold shadow-md">
+            Liên hệ tư vấn viên ngay
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer
+    class="border-t border-line bg-surface py-20 lg:py-24 dark:bg-surface-dark dark:border-line-invert transition-colors">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <!-- Cột 1: Logo và mô tả ngắn -->
+        <div>
+          <a href="index.html"
+            class="inline-flex items-center gap-2.5 text-2xl font-display font-bold text-brand-600 tracking-wide uppercase mb-4">
+            <svg class="w-8 h-8 shrink-0 drop-shadow-md" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M256 32C150 32 64 120 64 240c0 100 70 190 170 234 14 6 30 6 44 0 100-44 170-134 170-234 0-120-86-208-192-208z"
+                fill="#ce181e" />
+              <path d="M120 190c20 60 75 110 115 125-25-55-40-115-30-155-30 5-65 15-85 30z" fill="#ffffff"
+                stroke="#0f172a" stroke-width="14" stroke-linejoin="round" />
+              <path d="M392 190c-20 60-75 110-115 125 25-55 40-115 30-155 30 5 65 15 85 30z" fill="#ffffff"
+                stroke="#0f172a" stroke-width="14" stroke-linejoin="round" />
+              <path d="M256 32v432M64 240h384" stroke="#8b0e13" stroke-width="8" opacity="0.4" />
+            </svg>
+            <span>SPIDER-STORE</span>
+          </a>
+          <p class="text-muted dark:text-muted-invert text-sm leading-relaxed mb-4">
+            Hệ thống phân phối mô hình, trang phục cosplay và phụ kiện Spider-Man chính hãng lớn nhất dành cho cộng đồng
+            người hâm mộ Marvel tại Việt Nam.
+          </p>
+        </div>
+
+        <!-- Cột 2: Nhóm liên kết sản phẩm -->
+        <nav aria-labelledby="footer-products">
+          <h3 id="footer-products"
+            class="font-display font-bold text-base text-ink dark:text-ink-invert uppercase tracking-wider mb-4">
+            Sản phẩm
+          </h3>
+          <ul class="space-y-2.5 text-sm text-muted dark:text-muted-invert">
+            <li><a href="index.html#features" class="hover:text-brand-600 dark:hover:text-brand-600 transition-colors">Mô hình Action Figure</a></li>
+            <li><a href="index.html#features" class="hover:text-brand-600 dark:hover:text-brand-600 transition-colors">Trang phục Cosplay cao cấp</a></li>
+            <li><a href="index.html#features" class="hover:text-brand-600 dark:hover:text-brand-600 transition-colors">Mặt nạ & Phụ kiện bắn tơ</a></li>
+            <li><a href="pricing.html" class="hover:text-brand-600 dark:hover:text-brand-600 transition-colors">Gói hội viên VIP</a></li>
+            <li><a href="index.html#features" class="hover:text-brand-600 dark:hover:text-brand-600 transition-colors">Vật phẩm bản quyền giới hạn</a></li>
+          </ul>
+        </nav>
+
+        <!-- Cột 3: Nhóm liên kết hỗ trợ -->
+        <nav aria-labelledby="footer-support">
+          <h3 id="footer-support"
+            class="font-display font-bold text-base text-ink dark:text-ink-invert uppercase tracking-wider mb-4">
+            Hỗ trợ & Dịch vụ
+          </h3>
+          <ul class="space-y-2.5 text-sm text-muted dark:text-muted-invert">
+            <li><a href="index.html#faq" class="hover:text-brand-600 dark:hover:text-brand-600 transition-colors">Câu hỏi thường gặp (FAQ)</a></li>
+            <li><a href="contact.html" class="hover:text-brand-600 dark:hover:text-brand-600 transition-colors">Liên hệ hỗ trợ</a></li>
+            <li><a href="pricing.html" class="hover:text-brand-600 dark:hover:text-brand-600 transition-colors">Chính sách hội viên</a></li>
+            <li><a href="contact.html" class="hover:text-brand-600 dark:hover:text-brand-600 transition-colors">Bảo hành & Đổi trả</a></li>
+            <li><a href="contact.html" class="hover:text-brand-600 dark:hover:text-brand-600 transition-colors">Tư vấn bảo quản mô hình</a></li>
+          </ul>
+        </nav>
+
+        <!-- Cột 4: Địa chỉ -->
+        <div>
+          <h3 class="font-display font-bold text-base text-ink dark:text-ink-invert uppercase tracking-wider mb-4">
+            Địa chỉ cửa hàng
+          </h3>
+          <ul class="space-y-3 text-sm text-muted dark:text-muted-invert">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span>Xã Thụy Duyên, Huyện Thái Thụy, Tỉnh Thái Bình</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                </path>
+              </svg>
+              <span>Hotline: 1900 6868</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                </path>
+              </svg>
+              <span>Email: support@spiderstore.vn</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="mt-16 pt-8 border-t border-line dark:border-line-invert flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted dark:text-muted-invert">
+        <p>© 2026 Spider-Store. Tất cả quyền được bảo lưu.</p>
+        <p>Thiết kế dành cho cộng đồng người hâm mộ Marvel Việt Nam.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script xử lý chuyển đổi Dark / Light Mode -->
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function syncThemeIcons() {
+      if (document.documentElement.classList.contains('dark')) {
+        lightIcon.classList.remove('hidden');
+        darkIcon.classList.add('hidden');
+      } else {
+        lightIcon.classList.add('hidden');
+        darkIcon.classList.remove('hidden');
+      }
+    }
+
+    syncThemeIcons();
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', function () {
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+        syncThemeIcons();
+      });
+    }
+  </script>
+</body>
+
+</html>
