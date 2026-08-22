@@ -62,14 +62,14 @@
           title="Bấm để chuyển đổi giao diện sáng/tối"
           class="p-2 rounded-full text-ink dark:text-ink-invert bg-surface dark:bg-surface-dark-alt border border-line dark:border-line-invert hover:bg-brand-600/10 dark:hover:bg-brand-600/20 focus:outline-none cursor-pointer transition-all shadow-sm flex items-center justify-center">
           <!-- Đầu Venom (hiển thị khi ở Light Mode để bấm bật Dark Mode) -->
-          <svg id="theme-toggle-venom-icon" class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 hidden" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <svg id="theme-toggle-venom-icon" class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 dark:hidden" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
             <path d="M256 32C150 32 64 120 64 240c0 100 70 190 170 234 14 6 30 6 44 0 100-44 170-134 170-234 0-120-86-208-192-208z" fill="#0f172a" stroke="#334155" stroke-width="8" />
             <path d="M110 170c30 70 90 130 130 145-30-65-45-135-30-180-35 5-75 15-100 35z" fill="#f8fafc" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
             <path d="M402 170c-30 70-90 130-130 145 30-65 45-135 30-180 35 5 75 15 100 35z" fill="#f8fafc" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
             <path d="M256 32v432M64 240h384" stroke="#1e293b" stroke-width="6" opacity="0.6" />
           </svg>
           <!-- Đầu Spider-Man Đỏ (hiển thị khi ở Dark Mode để bấm về Light Mode) -->
-          <svg id="theme-toggle-spider-icon" class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 hidden" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <svg id="theme-toggle-spider-icon" class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 hidden dark:block" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
             <path d="M256 32C150 32 64 120 64 240c0 100 70 190 170 234 14 6 30 6 44 0 100-44 170-134 170-234 0-120-86-208-192-208z" fill="#ce181e" stroke="#a81318" stroke-width="6" />
             <path d="M120 190c20 60 75 110 115 125-25-55-40-115-30-155-30 5-65 15-85 30z" fill="#ffffff" stroke="#0f172a" stroke-width="14" stroke-linejoin="round" />
             <path d="M392 190c-20 60-75 110-115 125 25-55 40-115 30-155 30 5 65 15 85 30z" fill="#ffffff" stroke="#0f172a" stroke-width="14" stroke-linejoin="round" />
@@ -476,8 +476,8 @@
     </div>
   </footer>
 
-  <!-- Nạp file JavaScript chính dạng Module -->
-  <script type="module" src="../js/main.js"></script>
+  <!-- Nạp file JavaScript chính -->
+  <script src="../js/main.js"></script>
 </body>
 
 </html>

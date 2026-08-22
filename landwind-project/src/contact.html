@@ -65,7 +65,7 @@
           class="p-2 rounded-full text-ink dark:text-ink-invert bg-surface dark:bg-surface-dark-alt border border-line dark:border-line-invert hover:bg-brand-600/10 dark:hover:bg-brand-600/20 focus:outline-none cursor-pointer transition-all shadow-sm flex items-center justify-center">
           <!-- Đầu Venom (hiển thị khi ở Light Mode để bấm bật Dark Mode) -->
           <svg id="theme-toggle-venom-icon"
-            class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 hidden" viewBox="0 0 512 512"
+            class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 dark:hidden" viewBox="0 0 512 512"
             xmlns="http://www.w3.org/2000/svg">
             <path
               d="M256 32C150 32 64 120 64 240c0 100 70 190 170 234 14 6 30 6 44 0 100-44 170-134 170-234 0-120-86-208-192-208z"
@@ -78,7 +78,7 @@
           </svg>
           <!-- Đầu Spider-Man Đỏ (hiển thị khi ở Dark Mode để bấm về Light Mode) -->
           <svg id="theme-toggle-spider-icon"
-            class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 hidden" viewBox="0 0 512 512"
+            class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 hidden dark:block" viewBox="0 0 512 512"
             xmlns="http://www.w3.org/2000/svg">
             <path
               d="M256 32C150 32 64 120 64 240c0 100 70 190 170 234 14 6 30 6 44 0 100-44 170-134 170-234 0-120-86-208-192-208z"
@@ -505,8 +505,8 @@
     </div>
   </footer>
 
-  <!-- Nạp file JavaScript chính dạng Module -->
-  <script type="module" src="../js/main.js"></script>
+  <!-- Nạp file JavaScript chính -->
+  <script src="../js/main.js"></script>
 </body>
 
 </html>
