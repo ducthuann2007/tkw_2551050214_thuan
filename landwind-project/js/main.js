@@ -1,35 +1,31 @@
-// js/main.js – Điểm khởi động toàn diện và an toàn cho tất cả các trang
+// js/main.js – Điểm khởi động duy nhất, hoạt động hoàn hảo trên mọi môi trường và giao thức file://
 
-// 1. Quản lý Dark Mode với icon Venom / Người Nhện đỏ
-export function initTheme() {
+// 1. Quản lý Dark Mode với icon Venom / Người Nhện đỏ (Nhiệm vụ 3 - Tiết 3)
+function initTheme() {
   const themeToggleBtn = document.getElementById("theme-toggle");
   if (!themeToggleBtn) return;
 
   function toggle() {
-    const isDark = document.documentElement.classList.contains("dark");
-    if (isDark) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    }
+    const isDark = document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
   }
 
   themeToggleBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    e.stopPropagation();
     toggle();
   });
 }
 
-// 2. Quản lý Menu Mobile (Nhiệm vụ 2 - Tiết 2)
-export function initNav() {
+// 2. Quản lý Menu Mobile và 3 cách đóng (Nhiệm vụ 2 - Tiết 2)
+function initNav() {
   const toggle = document.getElementById("nav-toggle") || document.querySelector('[aria-label*="menu"]');
   const menu = document.getElementById("main-nav") || document.querySelector('nav[aria-label="Điều hướng chính"]');
   const header = document.getElementById("main-header") || document.querySelector("header");
 
   if (!toggle || !menu) return;
 
+  // Khởi tạo thuộc tính ARIA
   if (!toggle.hasAttribute("aria-expanded")) {
     toggle.setAttribute("aria-expanded", "false");
   }
@@ -37,7 +33,7 @@ export function initNav() {
     toggle.setAttribute("aria-label", "Mở menu");
   }
 
-  // Hàm đóng/mở chạm đủ 4 thứ: UI, ARIA expanded, ARIA label, và overflow-hidden body
+  // Hàm đóng/mở chạm đủ 4 thứ: UI, ARIA expanded, ARIA label, overflow-hidden body
   function setOpen(open) {
     menu.classList.toggle("hidden", !open);
     toggle.setAttribute("aria-expanded", String(open));
@@ -61,14 +57,15 @@ export function initNav() {
     }
   }
 
+  // Bấm vào nút hamburger để chuyển đổi trạng thái
   toggle.addEventListener("click", (e) => {
     e.stopPropagation();
     const isOpen = toggle.getAttribute("aria-expanded") === "true";
     setOpen(!isOpen);
   });
 
-  // Ba cách đóng:
-  // 1. Phím ESC
+  // Ba cách đóng menu:
+  // 1. Phím ESC (kèm toggle.focus() để trả tiêu điểm về)
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
       setOpen(false);
@@ -76,7 +73,7 @@ export function initNav() {
     }
   });
 
-  // 2. Bấm ra ngoài header
+  // 2. Bấm ra ngoài vùng header
   document.addEventListener("click", (e) => {
     if (toggle.getAttribute("aria-expanded") === "true") {
       if (header && !header.contains(e.target)) {
@@ -85,7 +82,7 @@ export function initNav() {
     }
   });
 
-  // 3. Phóng to lên desktop
+  // 3. Khi màn hình phóng lên desktop (>= 1024px)
   const desktopMediaQuery = window.matchMedia("(min-width: 1024px)");
   const handleMediaChange = (e) => {
     if (e.matches && toggle.getAttribute("aria-expanded") === "true") {
@@ -99,8 +96,8 @@ export function initNav() {
   }
 }
 
-// 3. Navbar khi cuộn — dùng IntersectionObserver
-export function initHeaderOnScroll() {
+// 3. Navbar khi cuộn — dùng IntersectionObserver, không dùng sự kiện scroll
+function initHeaderOnScroll() {
   const header = document.getElementById("main-header") || document.querySelector("header");
   let sentinel = document.getElementById("nav-sentinel");
   if (!header) return;
@@ -124,7 +121,7 @@ export function initHeaderOnScroll() {
 }
 
 // 4. Accordion FAQ dùng Event Delegation (Nhiệm vụ 3 - Tiết 3)
-export function initFaq() {
+function initFaq() {
   const root = document.getElementById("faq");
   if (!root) return;
 
@@ -155,7 +152,7 @@ export function initFaq() {
 }
 
 // 5. Nút Lên đầu trang (Bài khởi động > 400px)
-export function initToTop() {
+function initToTop() {
   let toTopBtn = document.getElementById("back-to-top");
 
   if (!toTopBtn) {
@@ -188,13 +185,20 @@ export function initToTop() {
   });
 }
 
-// Tự động khởi chạy an toàn khi DOM sẵn sàng
+// Gán vào window để hỗ trợ gọi từ bất kỳ đâu nếu cần
+window.initTheme = initTheme;
+window.initNav = initNav;
+window.initHeaderOnScroll = initHeaderOnScroll;
+window.initFaq = initFaq;
+window.initToTop = initToTop;
+
+// Khởi chạy ngay
 function start() {
-  try { initTheme(); } catch (e) { console.error("Theme init error:", e); }
-  try { initNav(); } catch (e) { console.error("Nav init error:", e); }
-  try { initHeaderOnScroll(); } catch (e) { console.error("Header scroll error:", e); }
-  try { initFaq(); } catch (e) { console.error("FAQ init error:", e); }
-  try { initToTop(); } catch (e) { console.error("ToTop init error:", e); }
+  try { initTheme(); } catch (e) { console.error(e); }
+  try { initNav(); } catch (e) { console.error(e); }
+  try { initHeaderOnScroll(); } catch (e) { console.error(e); }
+  try { initFaq(); } catch (e) { console.error(e); }
+  try { initToTop(); } catch (e) { console.error(e); }
 }
 
 if (document.readyState === "loading") {
