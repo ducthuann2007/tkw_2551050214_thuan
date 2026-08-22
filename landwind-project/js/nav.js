@@ -1,49 +1,115 @@
-// js/nav.js - Quản lý điều hướng, hiệu ứng header và nút cuộn lên đầu trang
+// js/nav.js - Quản lý menu mobile và navbar khi cuộn (Nhiệm vụ 2 - Tiết 2)
+
 export function initNav() {
-  const navToggleBtn = document.querySelector('[aria-label="Mở menu điều hướng"]');
-  const navMenu = document.querySelector('nav[aria-label="Điều hướng chính"]');
+  const toggle = document.getElementById("nav-toggle") || document.querySelector('[aria-label*="menu"]');
+  const menu = document.getElementById("main-nav") || document.querySelector('nav[aria-label="Điều hướng chính"]');
+  const header = document.getElementById("main-header") || document.querySelector("header");
 
-  // Thoát êm nếu không tìm thấy phần tử điều hướng
-  if (!navToggleBtn || !navMenu) return;
+  // Thoát êm nếu trang hiện tại không có phần tử menu hoặc nút toggle
+  if (!toggle || !menu) return;
 
-  navToggleBtn.addEventListener("click", () => {
-    // Chuyển đổi hiển thị menu trên mobile
-    const isHidden = navMenu.classList.contains("hidden");
-    if (isHidden) {
-      navMenu.classList.remove("hidden");
-      navMenu.classList.add(
+  // Đảm bảo các thuộc tính ARIA khởi tạo
+  if (!toggle.hasAttribute("aria-expanded")) {
+    toggle.setAttribute("aria-expanded", "false");
+  }
+  if (!toggle.hasAttribute("aria-label")) {
+    toggle.setAttribute("aria-label", "Mở menu");
+  }
+
+  // Hàm đóng/mở chạm đủ 4 thứ: UI, ARIA expanded, ARIA label, và chặn cuộn nền body
+  function setOpen(open) {
+    menu.classList.toggle("hidden", !open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Đóng menu" : "Mở menu");
+    document.body.classList.toggle("overflow-hidden", open);
+
+    // Bổ sung kiểu hiển thị cho menu mobile khi mở mà không làm thay đổi bố cục desktop
+    if (open) {
+      menu.classList.add(
         "flex", "flex-col", "absolute", "top-full", "left-0", "w-full",
         "bg-surface", "dark:bg-surface-dark", "p-5", "border-b", "border-line",
         "dark:border-line-invert", "shadow-lg", "z-50"
       );
     } else {
-      navMenu.classList.add("hidden");
-      navMenu.classList.remove(
+      menu.classList.remove(
         "flex", "flex-col", "absolute", "top-full", "left-0", "w-full",
         "bg-surface", "dark:bg-surface-dark", "p-5", "border-b", "border-line",
         "dark:border-line-invert", "shadow-lg", "z-50"
       );
     }
+  }
+
+  // Bật/tắt khi click vào nút hamburger
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    setOpen(!isOpen);
   });
+
+  // Ba cách đóng menu:
+  // 1. Bấm phím ESC -> đóng menu và trả tiêu điểm về nút toggle
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+
+  // 2. Bấm ra ngoài vùng header
+  document.addEventListener("click", (e) => {
+    if (toggle.getAttribute("aria-expanded") === "true") {
+      if (header && !header.contains(e.target)) {
+        setOpen(false);
+      }
+    }
+  });
+
+  // 3. Khi màn hình phóng to lên kích thước desktop (>= 1024px)
+  const desktopMediaQuery = window.matchMedia("(min-width: 1024px)");
+  const handleMediaChange = (e) => {
+    if (e.matches && toggle.getAttribute("aria-expanded") === "true") {
+      setOpen(false);
+    }
+  };
+
+  if (desktopMediaQuery.addEventListener) {
+    desktopMediaQuery.addEventListener("change", handleMediaChange);
+  } else if (desktopMediaQuery.addListener) {
+    desktopMediaQuery.addListener(handleMediaChange);
+  }
 }
 
+// Navbar khi cuộn — dùng IntersectionObserver, không dùng sự kiện scroll
 export function initHeaderOnScroll() {
-  const header = document.querySelector("header");
+  const header = document.getElementById("main-header") || document.querySelector("header");
+  let sentinel = document.getElementById("nav-sentinel");
+
   if (!header) return;
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 20) {
-      header.classList.add("shadow-md", "backdrop-blur-md", "bg-surface/95", "dark:bg-surface-dark/95");
-    } else {
-      header.classList.remove("shadow-md", "backdrop-blur-md", "bg-surface/95", "dark:bg-surface-dark/95");
-    }
+  // Nếu trong DOM chưa có #nav-sentinel, tự động chèn 1 div rỗng ở đầu body
+  if (!sentinel) {
+    sentinel = document.createElement("div");
+    sentinel.id = "nav-sentinel";
+    sentinel.className = "w-full h-px -mt-px pointer-events-none opacity-0";
+    document.body.prepend(sentinel);
+  }
+
+  // IntersectionObserver chỉ báo đúng 2 lần: lúc vào và lúc ra
+  const observer = new IntersectionObserver(([entry]) => {
+    const scrolled = !entry.isIntersecting;
+    header.classList.toggle("shadow-md", scrolled);
+    header.classList.toggle("backdrop-blur-md", scrolled);
+    header.classList.toggle("bg-surface/95", scrolled);
+    header.classList.toggle("dark:bg-surface-dark/95", scrolled);
   });
+
+  observer.observe(sentinel);
 }
 
+// Nút "Lên đầu trang" (Bài khởi động)
 export function initToTop() {
   let toTopBtn = document.getElementById("back-to-top");
 
-  // Nếu chưa có phần tử nút trong HTML, tự động tạo nút "Lên đầu trang"
   if (!toTopBtn) {
     toTopBtn = document.createElement("button");
     toTopBtn.id = "back-to-top";
@@ -59,7 +125,7 @@ export function initToTop() {
     document.body.appendChild(toTopBtn);
   }
 
-  // Bài khởi động: nút "Lên đầu trang" hiện khi trang đã cuộn quá 400px
+  // Hiện khi trang đã cuộn quá 400px
   window.addEventListener("scroll", () => {
     if (window.scrollY > 400) {
       toTopBtn.classList.remove("opacity-0", "pointer-events-none");
