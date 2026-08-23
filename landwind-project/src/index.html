@@ -8,10 +8,15 @@
   <link rel="stylesheet" href="../dist/output.css">
   <script>
     (function () {
-      const saved = localStorage.getItem("theme");
-      const dark = saved ? saved === "dark"
+      const savedTheme = localStorage.getItem("theme");
+      const dark = savedTheme ? savedTheme === "dark"
         : window.matchMedia("(prefers-color-scheme: dark)").matches;
       document.documentElement.classList.toggle("dark", dark);
+
+      const savedMotion = localStorage.getItem("motion-reduce");
+      const reduceMotion = savedMotion !== null ? savedMotion === "true"
+        : window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      document.documentElement.classList.toggle("reduce-motion", reduceMotion);
     })();
   </script>
 </head>
@@ -59,6 +64,18 @@
       </nav>
 
       <div class="flex items-center gap-3">
+        <!-- Nút bật/tắt Chế độ Giảm chuyển động (Chống chóng mặt/tiền đình) -->
+        <button type="button" id="motion-toggle" aria-label="Bật/tắt hiệu ứng chuyển động"
+          title="Chống chóng mặt: Tắt/bật hiệu ứng chuyển động khi cuộn"
+          class="p-2 rounded-full text-ink dark:text-ink-invert bg-surface dark:bg-surface-dark-alt border border-line dark:border-line-invert hover:bg-brand-600/10 dark:hover:bg-brand-600/20 focus:outline-none cursor-pointer transition-all shadow-sm flex items-center justify-center">
+          <svg id="motion-toggle-on-icon" class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <svg id="motion-toggle-off-icon" class="w-5 h-5 text-muted dark:text-muted-invert shrink-0 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+          </svg>
+        </button>
+
         <!-- Nút bật/tắt Dark Mode: Đầu Venom (khi sáng -> bấm sang tối) / Đầu Spider-Man đỏ (khi tối -> bấm sang sáng) -->
         <button type="button" id="theme-toggle" aria-label="Chuyển đổi chế độ sáng/tối"
           title="Bấm để chuyển đổi giao diện sáng/tối"
@@ -99,7 +116,7 @@
   <main id="main">
     <!-- Hero Section -->
     <section aria-labelledby="hero-title" id="hero" class="section grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-      <div>
+      <div class="reveal-on-scroll">
         <span
           class="inline-block bg-brand-600/10 text-brand-600 text-xs font-semibold px-3 py-1 rounded-pill mb-4 uppercase tracking-wider">
           Bộ sưu tập mới 2026
@@ -135,7 +152,7 @@
         </ul>
       </div>
 
-      <div class="flex justify-center items-center">
+      <div class="flex justify-center items-center reveal-on-scroll delay-200">
         <img src="https://pngimg.com/uploads/spider_man/spider_man_PNG85.png" alt="Spider-Man Bắn Tơ"
           class="w-full h-auto max-h-[420px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300" />
       </div>
@@ -143,7 +160,7 @@
 
     <!-- Logo Partner Section -->
     <div id="logos"
-      class="py-10 bg-surface border-y border-line dark:bg-surface-dark dark:border-line-invert transition-colors">
+      class="py-10 bg-surface border-y border-line dark:bg-surface-dark dark:border-line-invert transition-colors reveal-on-scroll">
       <div class="max-w-6xl mx-auto px-5">
         <ul class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-16">
           <li
@@ -180,7 +197,7 @@
     </div>
 
     <!-- Solutions Section -->
-    <section aria-labelledby="solutions-title" id="solutions" class="section">
+    <section aria-labelledby="solutions-title" id="solutions" class="section reveal-on-scroll">
       <h2 id="solutions-title" class="text-3xl font-display font-bold text-ink dark:text-ink-invert mb-2 uppercase">
         Giải pháp cho từng nhu cầu
       </h2>
@@ -190,7 +207,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section aria-labelledby="stats-title" id="stats" class="section">
+    <section aria-labelledby="stats-title" id="stats" class="section reveal-on-scroll">
       <!-- Tiêu đề -->
       <div class="text-center max-w-2xl mx-auto">
         <h2 id="stats-title"
@@ -240,7 +257,7 @@
 
     <!-- Testimonials Section -->
     <!-- Spider-Man Generations Section -->
-    <section aria-labelledby="features-title" id="features" class="section">
+    <section aria-labelledby="features-title" id="features" class="section reveal-on-scroll">
 
       <!-- Tiêu đề -->
       <div class="text-center">
@@ -829,7 +846,7 @@
 
   <!-- Footer bốn cột: logo/mô tả, nhóm sản phẩm, nhóm hỗ trợ, địa chỉ -->
   <footer
-    class="border-t border-line bg-surface py-20 lg:py-24 dark:bg-surface-dark dark:border-line-invert transition-colors">
+    class="border-t border-line bg-surface py-20 lg:py-24 dark:bg-surface-dark dark:border-line-invert transition-colors reveal-on-scroll">
     <div class="max-w-6xl mx-auto px-5">
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <!-- Cột 1: Logo và mô tả ngắn -->

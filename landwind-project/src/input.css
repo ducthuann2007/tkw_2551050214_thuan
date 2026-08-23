@@ -101,6 +101,13 @@
   .delay-300 { transition-delay: 300ms; }
   .delay-400 { transition-delay: 400ms; }
 
+  /* Khi bật chế độ chống tiền đình / giảm chuyển động */
+  html.reduce-motion .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal-on-scroll {
       opacity: 1 !important;

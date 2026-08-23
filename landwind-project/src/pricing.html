@@ -8,10 +8,15 @@
   <link rel="stylesheet" href="../dist/output.css">
   <script>
     (function () {
-      const saved = localStorage.getItem("theme");
-      const dark = saved ? saved === "dark"
+      const savedTheme = localStorage.getItem("theme");
+      const dark = savedTheme ? savedTheme === "dark"
         : window.matchMedia("(prefers-color-scheme: dark)").matches;
       document.documentElement.classList.toggle("dark", dark);
+
+      const savedMotion = localStorage.getItem("motion-reduce");
+      const reduceMotion = savedMotion !== null ? savedMotion === "true"
+        : window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      document.documentElement.classList.toggle("reduce-motion", reduceMotion);
     })();
   </script>
 </head>
@@ -58,6 +63,18 @@
       </nav>
 
       <div class="flex items-center gap-3">
+        <!-- Nút bật/tắt Chế độ Giảm chuyển động (Chống chóng mặt/tiền đình) -->
+        <button type="button" id="motion-toggle" aria-label="Bật/tắt hiệu ứng chuyển động"
+          title="Chống chóng mặt: Tắt/bật hiệu ứng chuyển động khi cuộn"
+          class="p-2 rounded-full text-ink dark:text-ink-invert bg-surface dark:bg-surface-dark-alt border border-line dark:border-line-invert hover:bg-brand-600/10 dark:hover:bg-brand-600/20 focus:outline-none cursor-pointer transition-all shadow-sm flex items-center justify-center">
+          <svg id="motion-toggle-on-icon" class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <svg id="motion-toggle-off-icon" class="w-5 h-5 text-muted dark:text-muted-invert shrink-0 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+          </svg>
+        </button>
+
         <!-- Nút bật/tắt Dark Mode: Đầu Venom (khi sáng -> bấm sang tối) / Đầu Spider-Man đỏ (khi tối -> bấm sang sáng) -->
         <button type="button" id="theme-toggle" aria-label="Chuyển đổi chế độ sáng/tối"
           title="Bấm để chuyển đổi giao diện sáng/tối"
@@ -96,7 +113,7 @@
 
   <main id="main">
     <!-- Header Banner Pricing -->
-    <section class="section pb-12 pt-16 text-center">
+    <section class="section pb-12 pt-16 text-center reveal-on-scroll">
       <span class="eyebrow">Bảng giá minh bạch</span>
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-ink dark:text-ink-invert mb-4 uppercase tracking-wide">
         Gói Hội Viên Spider-Store
@@ -337,7 +354,7 @@
       </div>
 
       <div class="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
-        <div class="card">
+        <div class="card reveal-on-scroll">
           <h3 class="font-display font-bold text-lg text-ink dark:text-ink-invert uppercase mb-2">
             Spider-Store hỗ trợ những phương thức thanh toán nào?
           </h3>
@@ -346,7 +363,7 @@
           </p>
         </div>
 
-        <div class="card">
+        <div class="card reveal-on-scroll delay-100">
           <h3 class="font-display font-bold text-lg text-ink dark:text-ink-invert uppercase mb-2">
             Tôi có thể hủy hoặc đổi gói bất kỳ lúc nào không?
           </h3>
@@ -355,16 +372,16 @@
           </p>
         </div>
 
-        <div class="card">
+        <div class="card reveal-on-scroll">
           <h3 class="font-display font-bold text-lg text-ink dark:text-ink-invert uppercase mb-2">
-            Chính sách hoàn tiền diễn ra như thế nào?
+            Chính sách hoàn tiền khi hủy gói?
           </h3>
           <p class="text-sm text-muted dark:text-muted-invert leading-relaxed">
             Chúng tôi áp dụng chính sách hoàn tiền 100% trong vòng 7 ngày đầu tiên nếu bạn chưa sử dụng các ưu đãi mua sắm hoặc quà tặng độc quyền của gói.
           </p>
         </div>
 
-        <div class="card">
+        <div class="card reveal-on-scroll delay-100">
           <h3 class="font-display font-bold text-lg text-ink dark:text-ink-invert uppercase mb-2">
             Sau khi đăng ký thì quyền lợi được kích hoạt khi nào?
           </h3>
@@ -376,7 +393,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="section pt-0">
+    <section class="section pt-0 reveal-on-scroll">
       <div class="rounded-card bg-brand-600 px-6 py-12 sm:px-12 sm:py-16 text-center text-white shadow-xl">
         <h2 class="text-3xl sm:text-4xl font-display font-bold mb-4 uppercase tracking-wide">
           Cần tư vấn chọn gói hội viên phù hợp?
@@ -395,7 +412,7 @@
 
   <!-- Footer -->
   <footer
-    class="border-t border-line bg-surface py-20 lg:py-24 dark:bg-surface-dark dark:border-line-invert transition-colors">
+    class="border-t border-line bg-surface py-20 lg:py-24 dark:bg-surface-dark dark:border-line-invert transition-colors reveal-on-scroll">
     <div class="max-w-6xl mx-auto px-5">
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <!-- Cột 1: Logo và mô tả ngắn -->
