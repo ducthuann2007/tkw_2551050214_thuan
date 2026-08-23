@@ -229,7 +229,7 @@ function initPricing() {
   });
 }
 
-// 7. Hiệu ứng lộ dần khi cuộn, tôn trọng prefers-reduced-motion (Nhiệm vụ 4 - Tiết 4)
+// 7. Hiệu ứng lộ dần khi cuộn chạy từ dưới lên, tôn trọng prefers-reduced-motion (Nhiệm vụ 4 - Tiết 4)
 function initScrollReveal() {
   const items = document.querySelectorAll(".reveal-on-scroll, [data-reveal]");
   if (!items.length) return;
@@ -247,7 +247,7 @@ function initScrollReveal() {
       }
     });
   }, {
-    threshold: 0.1,
+    threshold: 0.08,
     rootMargin: "0px 0px -40px 0px"
   });
 

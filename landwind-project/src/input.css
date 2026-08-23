@@ -83,11 +83,11 @@
     @apply mt-1 text-xs text-brand-600 font-medium;
   }
 
-  /* Hiệu ứng lộ dần khi cuộn (Nhiệm vụ 4 - Tiết 4) */
+  /* Hiệu ứng lộ dần khi cuộn chạy từ dưới lên rõ rệt (Nhiệm vụ 4 - Tiết 4) */
   .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(40px);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
   }
 
@@ -95,6 +95,11 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
 
   @media (prefers-reduced-motion: reduce) {
     .reveal-on-scroll {
