@@ -68,11 +68,14 @@
         <button type="button" id="motion-toggle" aria-label="Bật/tắt hiệu ứng chuyển động"
           title="Chống chóng mặt: Tắt/bật hiệu ứng chuyển động khi cuộn"
           class="p-2 rounded-full text-ink dark:text-ink-invert bg-surface dark:bg-surface-dark-alt border border-line dark:border-line-invert hover:bg-brand-600/10 dark:hover:bg-brand-600/20 focus:outline-none cursor-pointer transition-all shadow-sm flex items-center justify-center">
-          <svg id="motion-toggle-on-icon" class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg id="motion-toggle-on-icon" class="w-5 h-5 text-brand-600 shrink-0" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
-          <svg id="motion-toggle-off-icon" class="w-5 h-5 text-muted dark:text-muted-invert shrink-0 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+          <svg id="motion-toggle-off-icon" class="w-5 h-5 text-muted dark:text-muted-invert shrink-0 hidden" fill="none"
+            stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
           </svg>
         </button>
 
@@ -81,17 +84,29 @@
           title="Bấm để chuyển đổi giao diện sáng/tối"
           class="p-2 rounded-full text-ink dark:text-ink-invert bg-surface dark:bg-surface-dark-alt border border-line dark:border-line-invert hover:bg-brand-600/10 dark:hover:bg-brand-600/20 focus:outline-none cursor-pointer transition-all shadow-sm flex items-center justify-center">
           <!-- Đầu Venom (hiển thị khi ở Light Mode để bấm bật Dark Mode) -->
-          <svg id="theme-toggle-venom-icon" class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 dark:hidden" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-            <path d="M256 32C150 32 64 120 64 240c0 100 70 190 170 234 14 6 30 6 44 0 100-44 170-134 170-234 0-120-86-208-192-208z" fill="#0f172a" stroke="#334155" stroke-width="8" />
-            <path d="M110 170c30 70 90 130 130 145-30-65-45-135-30-180-35 5-75 15-100 35z" fill="#f8fafc" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
-            <path d="M402 170c-30 70-90 130-130 145 30-65 45-135 30-180 35 5 75 15 100 35z" fill="#f8fafc" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
+          <svg id="theme-toggle-venom-icon"
+            class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 dark:hidden" viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M256 32C150 32 64 120 64 240c0 100 70 190 170 234 14 6 30 6 44 0 100-44 170-134 170-234 0-120-86-208-192-208z"
+              fill="#0f172a" stroke="#334155" stroke-width="8" />
+            <path d="M110 170c30 70 90 130 130 145-30-65-45-135-30-180-35 5-75 15-100 35z" fill="#f8fafc"
+              stroke="#000000" stroke-width="12" stroke-linejoin="round" />
+            <path d="M402 170c-30 70-90 130-130 145 30-65 45-135 30-180 35 5 75 15 100 35z" fill="#f8fafc"
+              stroke="#000000" stroke-width="12" stroke-linejoin="round" />
             <path d="M256 32v432M64 240h384" stroke="#1e293b" stroke-width="6" opacity="0.6" />
           </svg>
           <!-- Đầu Spider-Man Đỏ (hiển thị khi ở Dark Mode để bấm về Light Mode) -->
-          <svg id="theme-toggle-spider-icon" class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 hidden dark:block" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-            <path d="M256 32C150 32 64 120 64 240c0 100 70 190 170 234 14 6 30 6 44 0 100-44 170-134 170-234 0-120-86-208-192-208z" fill="#ce181e" stroke="#a81318" stroke-width="6" />
-            <path d="M120 190c20 60 75 110 115 125-25-55-40-115-30-155-30 5-65 15-85 30z" fill="#ffffff" stroke="#0f172a" stroke-width="14" stroke-linejoin="round" />
-            <path d="M392 190c-20 60-75 110-115 125 25-55 40-115 30-155 30 5 65 15 85 30z" fill="#ffffff" stroke="#0f172a" stroke-width="14" stroke-linejoin="round" />
+          <svg id="theme-toggle-spider-icon"
+            class="w-6 h-6 shrink-0 transition-transform duration-300 hover:scale-110 hidden dark:block"
+            viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M256 32C150 32 64 120 64 240c0 100 70 190 170 234 14 6 30 6 44 0 100-44 170-134 170-234 0-120-86-208-192-208z"
+              fill="#ce181e" stroke="#a81318" stroke-width="6" />
+            <path d="M120 190c20 60 75 110 115 125-25-55-40-115-30-155-30 5-65 15-85 30z" fill="#ffffff"
+              stroke="#0f172a" stroke-width="14" stroke-linejoin="round" />
+            <path d="M392 190c-20 60-75 110-115 125 25-55 40-115 30-155 30 5 65 15 85 30z" fill="#ffffff"
+              stroke="#0f172a" stroke-width="14" stroke-linejoin="round" />
             <path d="M256 32v432M64 240h384" stroke="#8b0e13" stroke-width="8" opacity="0.4" />
           </svg>
         </button>
@@ -138,15 +153,15 @@
 
         <ul class="grid grid-cols-3 gap-2 sm:gap-3">
           <li class="card !p-2.5 sm:!p-3 text-center">
-            <strong class="block text-xl sm:text-2xl font-display text-brand-600">120+</strong>
+            <strong data-counter="120" data-suffix="+" class="block text-xl sm:text-2xl font-display text-brand-600">120+</strong>
             <span class="text-xs text-muted dark:text-muted-invert">Mẫu độc quyền</span>
           </li>
           <li class="card !p-2.5 sm:!p-3 text-center">
-            <strong class="block text-xl sm:text-2xl font-display text-brand-600">2.5K+</strong>
+            <strong data-counter="2.5" data-decimals="1" data-suffix="K+" class="block text-xl sm:text-2xl font-display text-brand-600">2.5K+</strong>
             <span class="text-xs text-muted dark:text-muted-invert">Khách hàng</span>
           </li>
           <li class="card !p-2.5 sm:!p-3 text-center">
-            <strong class="block text-xl sm:text-2xl font-display text-brand-600">98%</strong>
+            <strong data-counter="98" data-suffix="%" class="block text-xl sm:text-2xl font-display text-brand-600">98%</strong>
             <span class="text-xs text-muted dark:text-muted-invert">Đánh giá 5 sao</span>
           </li>
         </ul>
@@ -228,7 +243,7 @@
           <dt class="order-2 mt-2 text-sm text-muted dark:text-muted-invert">
             Mẫu độc quyền
           </dt>
-          <dd class="font-display text-4xl sm:text-5xl font-extrabold text-brand-600">
+          <dd data-counter="120" data-suffix="+" class="font-display text-4xl sm:text-5xl font-extrabold text-brand-600">
             120+
           </dd>
         </div>
@@ -238,7 +253,7 @@
           <dt class="order-2 mt-2 text-sm text-muted dark:text-muted-invert">
             Khách hàng
           </dt>
-          <dd class="font-display text-4xl sm:text-5xl font-extrabold text-brand-600">
+          <dd data-counter="2.5" data-decimals="1" data-suffix="K+" class="font-display text-4xl sm:text-5xl font-extrabold text-brand-600">
             2.5K+
           </dd>
         </div>
@@ -248,7 +263,7 @@
           <dt class="order-2 mt-2 text-sm text-muted dark:text-muted-invert">
             Đánh giá 5 sao
           </dt>
-          <dd class="font-display text-4xl sm:text-5xl font-extrabold text-brand-600">
+          <dd data-counter="98" data-suffix="%" class="font-display text-4xl sm:text-5xl font-extrabold text-brand-600">
             98%
           </dd>
         </div>
@@ -355,12 +370,14 @@
     <section aria-labelledby="testimonial-title" id="testimonial"
       class="bg-brand-600/5 border-y border-line dark:bg-brand-600/10 dark:border-line-invert transition-colors reveal-on-scroll">
       <div class="section">
-        <div id="testimonial-slider" class="relative max-w-4xl mx-auto" aria-roledescription="carousel" aria-label="Cảm nhận từ người hâm mộ">
+        <div id="testimonial-slider" class="relative max-w-4xl mx-auto" aria-roledescription="carousel"
+          aria-label="Cảm nhận từ người hâm mộ">
           <h2 id="testimonial-title" class="sr-only">Cảm nhận từ khách hàng</h2>
 
           <!-- Dấu quote trang trí -->
           <div class="text-center mb-2">
-            <span class="inline-block text-6xl font-display leading-none text-brand-600/40 select-none" aria-hidden="true">
+            <span class="inline-block text-6xl font-display leading-none text-brand-600/40 select-none"
+              aria-hidden="true">
               “
             </span>
           </div>
@@ -379,7 +396,7 @@
                   </blockquote>
                   <figcaption class="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm">
                     <span class="font-semibold text-ink dark:text-ink-invert text-base">
-                      Nguyễn Minh Tuấn
+                      Nguyễn Trọng Bảo
                     </span>
                     <span class="text-brand-600 font-bold tracking-widest">★★★★★</span>
                     <cite class="text-muted dark:text-muted-invert not-italic">
@@ -394,11 +411,12 @@
                 <figure class="mx-auto max-w-3xl">
                   <blockquote
                     class="text-xl md:text-2xl font-display font-bold text-ink dark:text-ink-invert leading-relaxed">
-                    “Chất lượng trang phục cosplay và mô hình tại Spider-Store thực sự đỉnh cao. Khớp figure chắc chắn, màu sơn sắc nét đến từng chi tiết nhỏ nhất!”
+                    “Chất lượng trang phục cosplay và mô hình tại Spider-Store thực sự đỉnh cao. Khớp figure chắc chắn,
+                    màu sơn sắc nét đến từng chi tiết nhỏ nhất!”
                   </blockquote>
                   <figcaption class="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm">
                     <span class="font-semibold text-ink dark:text-ink-invert text-base">
-                      Trần Hoàng Nam
+                      Nguyễn Trịnh Phát Đạt
                     </span>
                     <span class="text-brand-600 font-bold tracking-widest">★★★★★</span>
                     <cite class="text-muted dark:text-muted-invert not-italic">
@@ -413,11 +431,12 @@
                 <figure class="mx-auto max-w-3xl">
                   <blockquote
                     class="text-xl md:text-2xl font-display font-bold text-ink dark:text-ink-invert leading-relaxed">
-                    “Dịch vụ đóng gói hỏa tốc siêu cẩn thận với 3 lớp bọc chống sốc. Hộp nguyên seal không một vết móp méo, xứng đáng điểm 10 trải nghiệm.”
+                    “Dịch vụ đóng gói hỏa tốc siêu cẩn thận với 3 lớp bọc chống sốc. Hộp nguyên seal không một vết móp
+                    méo, xứng đáng điểm 10 trải nghiệm.”
                   </blockquote>
                   <figcaption class="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm">
                     <span class="font-semibold text-ink dark:text-ink-invert text-base">
-                      Lê Phương Thảo
+                      Nguyễn Ngọc Minh Thư
                     </span>
                     <span class="text-brand-600 font-bold tracking-widest">★★★★★</span>
                     <cite class="text-muted dark:text-muted-invert not-italic">
@@ -432,11 +451,12 @@
                 <figure class="mx-auto max-w-3xl">
                   <blockquote
                     class="text-xl md:text-2xl font-display font-bold text-ink dark:text-ink-invert leading-relaxed">
-                    “Gói hội viên VIP mang lại đặc quyền pre-order bản giới hạn cực kỳ đáng tiền. Đội ngũ tư vấn tận tình như những người bạn cùng chung đam mê.”
+                    “Gói hội viên VIP mang lại đặc quyền pre-order bản giới hạn cực kỳ đáng tiền. Đội ngũ tư vấn tận
+                    tình như những người bạn cùng chung đam mê.”
                   </blockquote>
                   <figcaption class="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm">
                     <span class="font-semibold text-ink dark:text-ink-invert text-base">
-                      Phạm Quốc Bảo
+                      Phạm Mai Phương
                     </span>
                     <span class="text-brand-600 font-bold tracking-widest">★★★★★</span>
                     <cite class="text-muted dark:text-muted-invert not-italic">
@@ -449,7 +469,8 @@
           </div>
 
           <!-- Nút điều hướng Trước / Sau -->
-          <div class="flex items-center justify-between pointer-events-none absolute inset-y-0 left-0 right-0 -mx-3 sm:-mx-6">
+          <div
+            class="flex items-center justify-between pointer-events-none absolute inset-y-0 left-0 right-0 -mx-3 sm:-mx-6">
             <button type="button" data-slider-prev aria-label="Cảm nhận trước đó"
               class="pointer-events-auto p-2.5 rounded-full bg-surface dark:bg-surface-dark-alt text-ink dark:text-ink-invert border border-line dark:border-line-invert shadow-md hover:bg-brand-600 hover:text-white dark:hover:bg-brand-600 transition-all focus:outline-none cursor-pointer">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -465,7 +486,8 @@
           </div>
 
           <!-- Chấm chỉ dẫn (Dots pagination) - SINH TỰ ĐỘNG HOÀN TOÀN BẰNG JS TỪ SỐ SLIDE THẬT -->
-          <div data-slider-dots class="mt-8 flex items-center justify-center gap-2.5" role="tablist" aria-label="Chọn cảm nhận">
+          <div data-slider-dots class="mt-8 flex items-center justify-center gap-2.5" role="tablist"
+            aria-label="Chọn cảm nhận">
             <!-- Rendered by JavaScript -->
           </div>
         </div>
@@ -486,9 +508,11 @@
       </div>
 
       <!-- Pricing Toggle Switch (Nhiệm vụ 4 - Tiết 4) -->
-      <div class="flex items-center justify-center gap-4 mb-12 text-sm font-medium text-ink dark:text-ink-invert reveal-on-scroll">
+      <div
+        class="flex items-center justify-center gap-4 mb-12 text-sm font-medium text-ink dark:text-ink-invert reveal-on-scroll">
         <span id="index-label-monthly" class="font-semibold">Thanh toán theo tháng</span>
-        <button type="button" role="switch" id="pricing-toggle" aria-checked="false" aria-labelledby="index-label-monthly"
+        <button type="button" role="switch" id="pricing-toggle" aria-checked="false"
+          aria-labelledby="index-label-monthly"
           class="relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-line dark:bg-line-invert transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-600 focus:ring-offset-2 aria-checked:bg-brand-600 dark:aria-checked:bg-brand-600">
           <span class="sr-only">Chuyển đổi thanh toán theo tháng hoặc theo năm</span>
           <span aria-hidden="true" data-switch-thumb
@@ -496,7 +520,9 @@
         </button>
         <div class="flex items-center gap-1.5">
           <span id="index-label-yearly" class="text-muted dark:text-muted-invert">Thanh toán theo năm</span>
-          <span class="inline-block bg-brand-600/10 text-brand-600 text-xs font-semibold px-2 py-0.5 rounded-full dark:bg-brand-600/20">Tiết kiệm 20%</span>
+          <span
+            class="inline-block bg-brand-600/10 text-brand-600 text-xs font-semibold px-2 py-0.5 rounded-full dark:bg-brand-600/20">Tiết
+            kiệm 20%</span>
         </div>
       </div>
 
@@ -510,7 +536,8 @@
             <p class="mt-2 text-sm text-muted dark:text-muted-invert">Dành cho các fan mới bắt đầu khám phá thế giới
               Người Nhện.</p>
             <div class="mt-6 mb-6 flex items-baseline gap-1">
-              <span data-price data-monthly="199000" data-yearly="1910000" class="text-4xl font-display font-extrabold text-ink dark:text-ink-invert">199.000 ₫</span>
+              <span data-price data-monthly="199000" data-yearly="1910000"
+                class="text-4xl font-display font-extrabold text-ink dark:text-ink-invert">199.000 ₫</span>
               <span data-billing-cycle class="text-sm text-muted dark:text-muted-invert font-medium">/tháng</span>
             </div>
           </div>
@@ -550,7 +577,8 @@
             <p class="mt-2 text-sm text-muted dark:text-muted-invert">Lựa chọn lý tưởng cho các tín đồ sưu tầm mô hình
               chính hãng.</p>
             <div class="mt-6 mb-6 flex items-baseline gap-1">
-              <span data-price data-monthly="499000" data-yearly="4790000" class="text-4xl font-display font-extrabold text-brand-600">499.000 ₫</span>
+              <span data-price data-monthly="499000" data-yearly="4790000"
+                class="text-4xl font-display font-extrabold text-brand-600">499.000 ₫</span>
               <span data-billing-cycle class="text-sm text-muted dark:text-muted-invert font-medium">/tháng</span>
             </div>
           </div>
@@ -594,7 +622,8 @@
             <p class="mt-2 text-sm text-muted dark:text-muted-invert">Đặc quyền cao cấp nhất dành cho nhà sưu tầm chuyên
               nghiệp.</p>
             <div class="mt-6 mb-6 flex items-baseline gap-1">
-              <span data-price data-monthly="999000" data-yearly="9590000" class="text-4xl font-display font-extrabold text-ink dark:text-ink-invert">999.000 ₫</span>
+              <span data-price data-monthly="999000" data-yearly="9590000"
+                class="text-4xl font-display font-extrabold text-ink dark:text-ink-invert">999.000 ₫</span>
               <span data-billing-cycle class="text-sm text-muted dark:text-muted-invert font-medium">/tháng</span>
             </div>
           </div>
@@ -838,64 +867,76 @@
         <!-- Cột 2 (1.4fr): Danh sách câu hỏi/câu trả lời (Accordion Event Delegation) -->
         <div class="space-y-4">
           <div class="card !p-0 overflow-hidden reveal-on-scroll">
-            <button type="button" class="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+            <button type="button"
+              class="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
               data-faq-trigger aria-expanded="false" aria-controls="faq-ans-1">
               <span class="font-display font-bold text-lg text-ink dark:text-ink-invert uppercase">
                 Sản phẩm mô hình và trang phục có chính hãng 100% không?
               </span>
-              <svg data-faq-icon class="w-5 h-5 text-brand-600 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg data-faq-icon class="w-5 h-5 text-brand-600 shrink-0 transition-transform duration-300" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="faq-ans-1" class="hidden px-6 pb-6 text-sm text-muted dark:text-muted-invert leading-relaxed border-t border-line dark:border-line-invert pt-4">
+            <div id="faq-ans-1"
+              class="hidden px-6 pb-6 text-sm text-muted dark:text-muted-invert leading-relaxed border-t border-line dark:border-line-invert pt-4">
               Tất cả sản phẩm tại Spider-Store đều được nhập khẩu chính ngạch từ các thương hiệu hàng đầu như Marvel
               Legends, Hot Toys, Hasbro, Lego và có tem bảo hành chính hãng kèm mã xác thực bản quyền.
             </div>
           </div>
 
           <div class="card !p-0 overflow-hidden reveal-on-scroll delay-100">
-            <button type="button" class="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+            <button type="button"
+              class="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
               data-faq-trigger aria-expanded="false" aria-controls="faq-ans-2">
               <span class="font-display font-bold text-lg text-ink dark:text-ink-invert uppercase">
                 Chính sách đổi trả và bảo hành như thế nào?
               </span>
-              <svg data-faq-icon class="w-5 h-5 text-brand-600 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg data-faq-icon class="w-5 h-5 text-brand-600 shrink-0 transition-transform duration-300" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="faq-ans-2" class="hidden px-6 pb-6 text-sm text-muted dark:text-muted-invert leading-relaxed border-t border-line dark:border-line-invert pt-4">
+            <div id="faq-ans-2"
+              class="hidden px-6 pb-6 text-sm text-muted dark:text-muted-invert leading-relaxed border-t border-line dark:border-line-invert pt-4">
               Chúng tôi hỗ trợ đổi mới 1-1 trong 7 ngày đầu tiên nếu phát hiện lỗi từ nhà sản xuất hoặc hư hại trong quá
               trình vận chuyển. Mô hình cao cấp được bảo hành khớp và phụ kiện lên đến 12 tháng.
             </div>
           </div>
 
           <div class="card !p-0 overflow-hidden reveal-on-scroll delay-200">
-            <button type="button" class="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+            <button type="button"
+              class="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
               data-faq-trigger aria-expanded="false" aria-controls="faq-ans-3">
               <span class="font-display font-bold text-lg text-ink dark:text-ink-invert uppercase">
                 Thời gian giao hàng mất bao lâu và đóng gói ra sao?
               </span>
-              <svg data-faq-icon class="w-5 h-5 text-brand-600 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg data-faq-icon class="w-5 h-5 text-brand-600 shrink-0 transition-transform duration-300" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="faq-ans-3" class="hidden px-6 pb-6 text-sm text-muted dark:text-muted-invert leading-relaxed border-t border-line dark:border-line-invert pt-4">
+            <div id="faq-ans-3"
+              class="hidden px-6 pb-6 text-sm text-muted dark:text-muted-invert leading-relaxed border-t border-line dark:border-line-invert pt-4">
               Đơn hàng nội thành được giao hỏa tốc trong 2-4 giờ. Các tỉnh thành khác từ 2-3 ngày. Mọi đơn hàng đều được
               đóng gói theo quy chuẩn hộp carton dày, túi bóng khí 3 lớp và góc xốp bảo vệ hộp mô hình nguyên vẹn.
             </div>
           </div>
 
           <div class="card !p-0 overflow-hidden reveal-on-scroll delay-300">
-            <button type="button" class="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+            <button type="button"
+              class="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
               data-faq-trigger aria-expanded="false" aria-controls="faq-ans-4">
               <span class="font-display font-bold text-lg text-ink dark:text-ink-invert uppercase">
                 Làm thế nào để trở thành hội viên VIP của Spider-Store?
               </span>
-              <svg data-faq-icon class="w-5 h-5 text-brand-600 shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg data-faq-icon class="w-5 h-5 text-brand-600 shrink-0 transition-transform duration-300" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="faq-ans-4" class="hidden px-6 pb-6 text-sm text-muted dark:text-muted-invert leading-relaxed border-t border-line dark:border-line-invert pt-4">
+            <div id="faq-ans-4"
+              class="hidden px-6 pb-6 text-sm text-muted dark:text-muted-invert leading-relaxed border-t border-line dark:border-line-invert pt-4">
               Bạn chỉ cần đăng ký các gói hội viên Khởi Đầu, Spider-Hero hoặc Multiverse VIP tại bảng giá để được kích
               hoạt ngay ưu đãi giảm giá đến 25% cùng các quyền lợi pre-order vật phẩm giới hạn.
             </div>
