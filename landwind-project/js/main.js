@@ -185,20 +185,93 @@ function initToTop() {
   });
 }
 
+// 6. Công tắc giá tháng / năm dùng Intl.NumberFormat và role="switch" (Nhiệm vụ 4 - Tiết 4)
+function initPricing() {
+  const toggle = document.querySelector('[role="switch"]#pricing-toggle') || document.querySelector('[role="switch"]');
+  const priceElements = document.querySelectorAll("[data-price]");
+  const cycleElements = document.querySelectorAll("[data-billing-cycle]");
+
+  if (!toggle || !priceElements.length) return;
+
+  const dong = new Intl.NumberFormat("vi-VN", {
+    style: "currency",
+    currency: "VND",
+    maximumFractionDigits: 0,
+  });
+
+  function updatePrices(isYearly) {
+    toggle.setAttribute("aria-checked", String(isYearly));
+
+    const thumb = toggle.querySelector("[data-switch-thumb]");
+    if (thumb) {
+      thumb.classList.toggle("translate-x-5", isYearly);
+      thumb.classList.toggle("translate-x-0", !isYearly);
+    }
+
+    priceElements.forEach((el) => {
+      const rawValue = isYearly ? el.dataset.yearly : el.dataset.monthly;
+      if (rawValue) {
+        el.textContent = dong.format(Number(rawValue));
+      }
+    });
+
+    cycleElements.forEach((el) => {
+      el.textContent = isYearly ? "/năm" : "/tháng";
+    });
+  }
+
+  // Khởi tạo trạng thái giá ban đầu
+  updatePrices(toggle.getAttribute("aria-checked") === "true");
+
+  toggle.addEventListener("click", () => {
+    const isChecked = toggle.getAttribute("aria-checked") === "true";
+    updatePrices(!isChecked);
+  });
+}
+
+// 7. Hiệu ứng lộ dần khi cuộn, tôn trọng prefers-reduced-motion (Nhiệm vụ 4 - Tiết 4)
+function initScrollReveal() {
+  const items = document.querySelectorAll(".reveal-on-scroll, [data-reveal]");
+  if (!items.length) return;
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    items.forEach((el) => el.classList.add("is-visible")); // hiện luôn, không animate
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target); // Ngắt theo dõi ngay sau khi phần tử đã hiện
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -40px 0px"
+  });
+
+  items.forEach((el) => observer.observe(el));
+}
+
 // Gán vào window để hỗ trợ gọi từ bất kỳ đâu nếu cần
 window.initTheme = initTheme;
 window.initNav = initNav;
 window.initHeaderOnScroll = initHeaderOnScroll;
 window.initFaq = initFaq;
 window.initToTop = initToTop;
+window.initPricing = initPricing;
+window.initScrollReveal = initScrollReveal;
 
-// Khởi chạy ngay
+// Khởi chạy an toàn khi DOM sẵn sàng
 function start() {
   try { initTheme(); } catch (e) { console.error(e); }
   try { initNav(); } catch (e) { console.error(e); }
   try { initHeaderOnScroll(); } catch (e) { console.error(e); }
   try { initFaq(); } catch (e) { console.error(e); }
   try { initToTop(); } catch (e) { console.error(e); }
+  try { initPricing(); } catch (e) { console.error(e); }
+  try { initScrollReveal(); } catch (e) { console.error(e); }
 }
 
 if (document.readyState === "loading") {

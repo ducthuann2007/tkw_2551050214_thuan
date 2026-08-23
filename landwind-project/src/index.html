@@ -257,7 +257,7 @@
       <ul class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
         <!-- Tobey Maguire -->
-        <li class="card overflow-hidden !p-0">
+        <li class="card overflow-hidden !p-0 reveal-on-scroll">
 
           <div class="h-52 sm:h-56 lg:h-60 w-full overflow-hidden bg-brand-600/5">
             <img src="images/tobey.jpg" alt="Tobey Maguire trong vai Spider-Man"
@@ -283,7 +283,7 @@
 
 
         <!-- Andrew Garfield -->
-        <li class="card overflow-hidden !p-0">
+        <li class="card overflow-hidden !p-0 reveal-on-scroll">
 
           <div class="h-52 sm:h-56 lg:h-60 w-full overflow-hidden bg-brand-600/5">
             <img src="images/andrew.jpg" alt="Andrew Garfield trong vai Spider-Man"
@@ -309,7 +309,7 @@
 
 
         <!-- Tom Holland -->
-        <li class="card overflow-hidden !p-0">
+        <li class="card overflow-hidden !p-0 reveal-on-scroll">
 
           <div class="h-52 sm:h-56 lg:h-60 w-full overflow-hidden bg-brand-600/5">
             <img src="images/tom.jpg" alt="Tom Holland trong vai Spider-Man"
@@ -336,7 +336,7 @@
 
     <!-- Fan Testimonial Section -->
     <section aria-labelledby="testimonial-title" id="testimonial"
-      class="bg-brand-600/5 border-y border-line dark:bg-brand-600/10 dark:border-line-invert transition-colors">
+      class="bg-brand-600/5 border-y border-line dark:bg-brand-600/10 dark:border-line-invert transition-colors reveal-on-scroll">
       <div class="section">
         <figure class="mx-auto max-w-3xl text-center">
           <!-- Dấu quote trang trí -->
@@ -376,18 +376,33 @@
         </p>
       </div>
 
+      <!-- Pricing Toggle Switch (Nhiệm vụ 4 - Tiết 4) -->
+      <div class="flex items-center justify-center gap-4 mb-12 text-sm font-medium text-ink dark:text-ink-invert reveal-on-scroll">
+        <span id="index-label-monthly" class="font-semibold">Thanh toán theo tháng</span>
+        <button type="button" role="switch" id="pricing-toggle" aria-checked="false" aria-labelledby="index-label-monthly"
+          class="relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-line dark:bg-line-invert transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-600 focus:ring-offset-2 aria-checked:bg-brand-600 dark:aria-checked:bg-brand-600">
+          <span class="sr-only">Chuyển đổi thanh toán theo tháng hoặc theo năm</span>
+          <span aria-hidden="true" data-switch-thumb
+            class="pointer-events-none inline-block h-6 w-6 transform rounded-full bg-white shadow-md ring-0 transition duration-200 ease-in-out translate-x-0"></span>
+        </button>
+        <div class="flex items-center gap-1.5">
+          <span id="index-label-yearly" class="text-muted dark:text-muted-invert">Thanh toán theo năm</span>
+          <span class="inline-block bg-brand-600/10 text-brand-600 text-xs font-semibold px-2 py-0.5 rounded-full dark:bg-brand-600/20">Tiết kiệm 20%</span>
+        </div>
+      </div>
+
       <!-- 1. Ô kéo cao bằng nhau: grid items-stretch gap-6 lg:grid-cols-3 -->
       <ul class="grid items-stretch gap-6 lg:grid-cols-3 max-w-6xl mx-auto">
         <!-- Gói 1: Standard -->
         <!-- 2. Thẻ cao hết ô, xếp dọc: card flex h-full flex-col -->
-        <li class="card flex h-full flex-col">
+        <li class="card flex h-full flex-col reveal-on-scroll">
           <div>
             <h3 class="text-xl font-display font-bold text-ink dark:text-ink-invert uppercase">Gói Khởi Đầu</h3>
             <p class="mt-2 text-sm text-muted dark:text-muted-invert">Dành cho các fan mới bắt đầu khám phá thế giới
               Người Nhện.</p>
             <div class="mt-6 mb-6 flex items-baseline gap-1">
-              <span class="text-4xl font-display font-extrabold text-ink dark:text-ink-invert">199.000đ</span>
-              <span class="text-sm text-muted dark:text-muted-invert font-medium">/tháng</span>
+              <span data-price data-monthly="199000" data-yearly="1910000" class="text-4xl font-display font-extrabold text-ink dark:text-ink-invert">199.000 ₫</span>
+              <span data-billing-cycle class="text-sm text-muted dark:text-muted-invert font-medium">/tháng</span>
             </div>
           </div>
 
@@ -418,7 +433,7 @@
         </li>
 
         <!-- Gói 2: Premium (Nổi bật) -->
-        <li class="card relative flex h-full flex-col ring-2 ring-brand-600 shadow-md">
+        <li class="card relative flex h-full flex-col ring-2 ring-brand-600 shadow-md reveal-on-scroll">
           <span class="badge absolute -top-3 left-6 bg-brand-600 text-white">Được chọn nhiều nhất</span>
 
           <div>
@@ -426,8 +441,8 @@
             <p class="mt-2 text-sm text-muted dark:text-muted-invert">Lựa chọn lý tưởng cho các tín đồ sưu tầm mô hình
               chính hãng.</p>
             <div class="mt-6 mb-6 flex items-baseline gap-1">
-              <span class="text-4xl font-display font-extrabold text-brand-600">499.000đ</span>
-              <span class="text-sm text-muted dark:text-muted-invert font-medium">/tháng</span>
+              <span data-price data-monthly="499000" data-yearly="4790000" class="text-4xl font-display font-extrabold text-brand-600">499.000 ₫</span>
+              <span data-billing-cycle class="text-sm text-muted dark:text-muted-invert font-medium">/tháng</span>
             </div>
           </div>
 
@@ -464,14 +479,14 @@
         </li>
 
         <!-- Gói 3: Ultimate -->
-        <li class="card flex h-full flex-col">
+        <li class="card flex h-full flex-col reveal-on-scroll">
           <div>
             <h3 class="text-xl font-display font-bold text-ink dark:text-ink-invert uppercase">Gói Multiverse VIP</h3>
             <p class="mt-2 text-sm text-muted dark:text-muted-invert">Đặc quyền cao cấp nhất dành cho nhà sưu tầm chuyên
               nghiệp.</p>
             <div class="mt-6 mb-6 flex items-baseline gap-1">
-              <span class="text-4xl font-display font-extrabold text-ink dark:text-ink-invert">999.000đ</span>
-              <span class="text-sm text-muted dark:text-muted-invert font-medium">/tháng</span>
+              <span data-price data-monthly="999000" data-yearly="9590000" class="text-4xl font-display font-extrabold text-ink dark:text-ink-invert">999.000 ₫</span>
+              <span data-billing-cycle class="text-sm text-muted dark:text-muted-invert font-medium">/tháng</span>
             </div>
           </div>
 
@@ -515,7 +530,7 @@
       </ul>
 
       <!-- Bảng so sánh nhiều cột: Bọc overflow-x-auto + min-w-[720px] để cho cuộn ngang -->
-      <div class="mt-16 sm:mt-20">
+      <div class="mt-16 sm:mt-20 reveal-on-scroll">
         <div class="text-center max-w-2xl mx-auto mb-6">
           <h3 class="text-2xl sm:text-3xl font-display font-bold text-ink dark:text-ink-invert uppercase tracking-wide">
             So sánh chi tiết các gói
@@ -613,7 +628,7 @@
 
       <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         <!-- Blog Card 1 -->
-        <article class="card flex h-full flex-col overflow-hidden !p-0">
+        <article class="card flex h-full flex-col overflow-hidden !p-0 reveal-on-scroll">
           <div class="h-48 overflow-hidden bg-brand-600/5">
             <img src="images/spider-toy.png" alt="Mô hình Spider-Man 2026"
               class="h-full w-full object-cover object-top transition-transform duration-300 hover:scale-105" />
@@ -635,7 +650,7 @@
         </article>
 
         <!-- Blog Card 2 -->
-        <article class="card flex h-full flex-col overflow-hidden !p-0">
+        <article class="card flex h-full flex-col overflow-hidden !p-0 reveal-on-scroll">
           <div class="h-48 overflow-hidden bg-brand-600/5">
             <img src="images/tu.png" alt="Hướng dẫn bảo quản mô hình"
               class="h-full w-full object-cover transition-transform duration-300 hover:scale-105" />
@@ -657,7 +672,7 @@
         </article>
 
         <!-- Blog Card 3 -->
-        <article class="card flex h-full flex-col overflow-hidden !p-0">
+        <article class="card flex h-full flex-col overflow-hidden !p-0 reveal-on-scroll">
           <div class="h-48 overflow-hidden bg-brand-600/5">
             <img src="images/fest.png" alt="Sự kiện Spider-Verse"
               class="h-full w-full object-cover transition-transform duration-300 hover:scale-105" />
