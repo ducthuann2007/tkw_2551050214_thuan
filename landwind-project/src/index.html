@@ -351,32 +351,124 @@
       </ul>
     </section>
 
-    <!-- Fan Testimonial Section -->
+    <!-- Fan Testimonial Section (Nhiệm vụ 5 - Slider Cảm Nhận) -->
     <section aria-labelledby="testimonial-title" id="testimonial"
       class="bg-brand-600/5 border-y border-line dark:bg-brand-600/10 dark:border-line-invert transition-colors reveal-on-scroll">
       <div class="section">
-        <figure class="mx-auto max-w-3xl text-center">
+        <div id="testimonial-slider" class="relative max-w-4xl mx-auto" aria-roledescription="carousel" aria-label="Cảm nhận từ người hâm mộ">
+          <h2 id="testimonial-title" class="sr-only">Cảm nhận từ khách hàng</h2>
+
           <!-- Dấu quote trang trí -->
-          <span class="block text-6xl font-display leading-none text-brand-600/40" aria-hidden="true">
-            “
-          </span>
-
-          <blockquote
-            class="mt-2 text-xl md:text-2xl font-display font-bold text-ink dark:text-ink-invert leading-relaxed">
-            “Với tôi, Spider-Man không chỉ là một siêu anh hùng,
-            mà còn là một phần ký ức tuổi thơ và niềm đam mê sưu tầm.”
-          </blockquote>
-
-          <figcaption class="mt-6">
-            <span class="font-semibold text-ink dark:text-ink-invert">
-              Fan Spider-Store
+          <div class="text-center mb-2">
+            <span class="inline-block text-6xl font-display leading-none text-brand-600/40 select-none" aria-hidden="true">
+              “
             </span>
+          </div>
 
-            <cite class="ml-2 text-sm text-muted dark:text-muted-invert not-italic">
-              / Người hâm mộ Spider-Man
-            </cite>
-          </figcaption>
-        </figure>
+          <!-- Khung nhìn Slider (Viewport) -->
+          <div class="overflow-hidden relative w-full">
+            <!-- Dải trượt (Track) -->
+            <div data-slider-track class="flex transition-transform duration-500 ease-out will-change-transform">
+              <!-- Slide 1 -->
+              <div data-slider-slide class="w-full shrink-0 min-w-full px-4 sm:px-12 text-center">
+                <figure class="mx-auto max-w-3xl">
+                  <blockquote
+                    class="text-xl md:text-2xl font-display font-bold text-ink dark:text-ink-invert leading-relaxed">
+                    “Với tôi, Spider-Man không chỉ là một siêu anh hùng,
+                    mà còn là một phần ký ức tuổi thơ và niềm đam mê sưu tầm không thể thay thế.”
+                  </blockquote>
+                  <figcaption class="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm">
+                    <span class="font-semibold text-ink dark:text-ink-invert text-base">
+                      Nguyễn Minh Tuấn
+                    </span>
+                    <span class="text-brand-600 font-bold tracking-widest">★★★★★</span>
+                    <cite class="text-muted dark:text-muted-invert not-italic">
+                      / Nhà sưu tầm Hot Toys
+                    </cite>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <!-- Slide 2 -->
+              <div data-slider-slide class="w-full shrink-0 min-w-full px-4 sm:px-12 text-center">
+                <figure class="mx-auto max-w-3xl">
+                  <blockquote
+                    class="text-xl md:text-2xl font-display font-bold text-ink dark:text-ink-invert leading-relaxed">
+                    “Chất lượng trang phục cosplay và mô hình tại Spider-Store thực sự đỉnh cao. Khớp figure chắc chắn, màu sơn sắc nét đến từng chi tiết nhỏ nhất!”
+                  </blockquote>
+                  <figcaption class="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm">
+                    <span class="font-semibold text-ink dark:text-ink-invert text-base">
+                      Trần Hoàng Nam
+                    </span>
+                    <span class="text-brand-600 font-bold tracking-widest">★★★★★</span>
+                    <cite class="text-muted dark:text-muted-invert not-italic">
+                      / Cosplayer & Spider-Fan
+                    </cite>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <!-- Slide 3 -->
+              <div data-slider-slide class="w-full shrink-0 min-w-full px-4 sm:px-12 text-center">
+                <figure class="mx-auto max-w-3xl">
+                  <blockquote
+                    class="text-xl md:text-2xl font-display font-bold text-ink dark:text-ink-invert leading-relaxed">
+                    “Dịch vụ đóng gói hỏa tốc siêu cẩn thận với 3 lớp bọc chống sốc. Hộp nguyên seal không một vết móp méo, xứng đáng điểm 10 trải nghiệm.”
+                  </blockquote>
+                  <figcaption class="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm">
+                    <span class="font-semibold text-ink dark:text-ink-invert text-base">
+                      Lê Phương Thảo
+                    </span>
+                    <span class="text-brand-600 font-bold tracking-widest">★★★★★</span>
+                    <cite class="text-muted dark:text-muted-invert not-italic">
+                      / Hội viên Spider-Hero
+                    </cite>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <!-- Slide 4 -->
+              <div data-slider-slide class="w-full shrink-0 min-w-full px-4 sm:px-12 text-center">
+                <figure class="mx-auto max-w-3xl">
+                  <blockquote
+                    class="text-xl md:text-2xl font-display font-bold text-ink dark:text-ink-invert leading-relaxed">
+                    “Gói hội viên VIP mang lại đặc quyền pre-order bản giới hạn cực kỳ đáng tiền. Đội ngũ tư vấn tận tình như những người bạn cùng chung đam mê.”
+                  </blockquote>
+                  <figcaption class="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm">
+                    <span class="font-semibold text-ink dark:text-ink-invert text-base">
+                      Phạm Quốc Bảo
+                    </span>
+                    <span class="text-brand-600 font-bold tracking-widest">★★★★★</span>
+                    <cite class="text-muted dark:text-muted-invert not-italic">
+                      / Hội viên Multiverse VIP
+                    </cite>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nút điều hướng Trước / Sau -->
+          <div class="flex items-center justify-between pointer-events-none absolute inset-y-0 left-0 right-0 -mx-3 sm:-mx-6">
+            <button type="button" data-slider-prev aria-label="Cảm nhận trước đó"
+              class="pointer-events-auto p-2.5 rounded-full bg-surface dark:bg-surface-dark-alt text-ink dark:text-ink-invert border border-line dark:border-line-invert shadow-md hover:bg-brand-600 hover:text-white dark:hover:bg-brand-600 transition-all focus:outline-none cursor-pointer">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button type="button" data-slider-next aria-label="Cảm nhận tiếp theo"
+              class="pointer-events-auto p-2.5 rounded-full bg-surface dark:bg-surface-dark-alt text-ink dark:text-ink-invert border border-line dark:border-line-invert shadow-md hover:bg-brand-600 hover:text-white dark:hover:bg-brand-600 transition-all focus:outline-none cursor-pointer">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Chấm chỉ dẫn (Dots pagination) - SINH TỰ ĐỘNG HOÀN TOÀN BẰNG JS TỪ SỐ SLIDE THẬT -->
+          <div data-slider-dots class="mt-8 flex items-center justify-center gap-2.5" role="tablist" aria-label="Chọn cảm nhận">
+            <!-- Rendered by JavaScript -->
+          </div>
+        </div>
       </div>
     </section>
 
