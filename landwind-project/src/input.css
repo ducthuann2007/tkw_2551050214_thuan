@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source ".";
+@source "../js";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -10,11 +12,18 @@
   /* Màu nhấn: Xanh nước biển */
   --color-accent-500: #0476d0;
 
-  /* Bảng màu văn bản & nền */
+  /* Bảng màu văn bản & nền (Light Mode) */
   --color-ink: #0f172a;
   --color-muted: #64748b;
   --color-line: #e2e8f0;
   --color-surface: #ffffff;
+
+  /* Cặp màu Dark Mode theo token ngữ nghĩa */
+  --color-ink-invert: #f1f5f9;
+  --color-muted-invert: #94a3b8;
+  --color-line-invert: #334155;
+  --color-surface-dark: #0b0f19;
+  --color-surface-dark-alt: #131b2e;
 
   /* Font chữ Comic/Đồ chơi */
   --font-display: "Bebas Neue", "Oswald", system-ui, sans-serif;
@@ -25,19 +34,86 @@
   --radius-pill: 9999px;
 }
 
-/* Các lớp tái sử dụng */
-.section {
-  @apply mx-auto w-full max-w-6xl px-5 py-20 lg:py-28;
+/* Các lớp component tái sử dụng (8-10 components chuẩn quy tắc trích) */
+@layer components {
+  .section {
+    @apply mx-auto w-full max-w-6xl px-5 py-20 lg:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-block bg-brand-600/10 text-brand-600 text-xs font-semibold px-3 py-1 rounded-pill mb-3 uppercase tracking-wider dark:bg-brand-600/20;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-pill px-5 py-2.5 text-sm font-semibold transition-colors cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-brand-600 text-white hover:bg-brand-700;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-brand-600 text-brand-600 hover:bg-brand-600/5 dark:text-brand-600 dark:hover:bg-brand-600/10;
+  }
+
+  .btn-ghost {
+    @apply text-ink hover:text-brand-600 dark:text-ink-invert dark:hover:text-brand-600 hover:bg-brand-600/5 dark:hover:bg-brand-600/10;
+  }
+
+  .card {
+    @apply rounded-card border border-line bg-surface p-6 sm:p-8 shadow-sm transition-all duration-300
+           dark:border-line-invert dark:bg-surface-dark-alt dark:shadow-none;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-pill px-3 py-1 text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .field-label {
+    @apply block text-xs sm:text-sm font-semibold text-ink dark:text-ink-invert mb-2 uppercase tracking-wide;
+  }
+
+  .field-input {
+    @apply w-full rounded-card border border-line bg-surface px-4 py-3 text-sm text-ink outline-none transition-colors
+           focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20
+           dark:border-line-invert dark:bg-surface-dark dark:text-ink-invert dark:focus:border-brand-600;
+  }
+
+  .field-error {
+    @apply mt-1 text-xs text-brand-600 font-medium;
+  }
+
+  /* Hiệu ứng lộ dần khi cuộn chạy từ dưới lên rõ rệt (Nhiệm vụ 4 - Tiết 4) */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+
+  /* Khi bật chế độ chống tiền đình / giảm chuyển động */
+  html.reduce-motion .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-on-scroll {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
 }
 
-.btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-pill px-5 py-2.5 text-sm font-semibold transition-colors cursor-pointer;
-}
-
-.btn-primary {
-  @apply bg-brand-600 text-white hover:bg-brand-700;
-}
-
-.btn-secondary {
-  @apply border-2 border-brand-600 text-brand-600 hover:bg-brand-600/5;
-}
